@@ -204,13 +204,24 @@ nav.navbar.bootsnav .navbar-toggle i{color: #4e4ffa;}
 /*-------------------------------------
         3.  Welcome-hero
 --------------------------------------*/
+
+/* !!! */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
 .welcome-hero {
     position: relative;
-    background:url(../images/welcome-hero/welcome-banner.jpg)no-repeat;
-    background-position: center;
+    background: url(../images/welcome-hero/welcome-banner.jpg) no-repeat center center;
     background-size: cover;
-    z-index: 1;
+    width: 100vw;
+    height: 100vh;
 }
+
+
+
 .welcome-hero:before {
     position: absolute;
     content: "";
@@ -546,6 +557,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #4e4ffa;}
     background: #2a2d54;
 }
 .footer-top {padding: 112px 0 72px;}
+
+
 
 /*.footer-logo*/
 .footer-logo a,.footer-logo a:hover,.footer-logo a:focus{
