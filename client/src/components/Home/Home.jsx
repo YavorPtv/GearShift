@@ -1,10 +1,6 @@
-import Navigation from "../Navigation/Navigation";
-import Search from "../Search/Search";
-
-export default function Hero() {
+export default function Home() {
     return (
         <section id="home" className="welcome-hero">
-            <Navigation />
             <div className="container">
                 <div className="welcome-hero-txt">
                     <h2>Shift Into High Gear</h2>
@@ -17,7 +13,6 @@ export default function Hero() {
                     </button>
                 </div>
             </div>
-            {/* <Search /> */}
         </section>
     );
 }

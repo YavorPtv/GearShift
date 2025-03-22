@@ -21,7 +21,7 @@ export default function Navigation() {
                                 >
                                     <i className="fa fa-bars" />
                                 </button>
-                                <a className="navbar-brand" href="index.html">
+                                <a className="navbar-brand" href="/">
                                     gearshift
                                     <span />
                                 </a>
@@ -39,10 +39,10 @@ export default function Navigation() {
                                     data-out="fadeOutUp"
                                 >
                                     <li className=" scroll active">
-                                        <a href="#home">home</a>
+                                        <a href="/">home</a>
                                     </li>
                                     <li className="scroll">
-                                        <a href="#service">catalog</a>
+                                        <a href="/cars">catalog</a>
                                     </li>
                                     <li className="scroll">
                                         <a href="#new-cars">add post</a>

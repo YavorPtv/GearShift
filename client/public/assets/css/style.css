@@ -201,6 +201,59 @@ nav.navbar.bootsnav .navbar-toggle {
 nav.navbar.bootsnav .navbar-toggle i{color: #4e4ffa;}
 /*.navbar-toggle */
 
+/* !! */
+/* Adjust the navbar height */
+/* Make the navbar thicker */
+nav.navbar.bootsnav {
+    background-color: #000;
+    padding: 20px 0; /* Increase vertical padding to make the navbar thicker */
+}
+
+/* Increase the navbar items (links) padding and font size */
+nav.navbar.bootsnav ul.nav > li > a {
+    padding: 20px 25px; /* Increase padding for each item */
+    font-size: 18px; /* Increase font size */
+}
+
+/* Increase the brand/logo padding */
+.navbar-header a.navbar-brand {
+    padding: 30px 0; /* Increased padding for the brand */
+}
+
+/* Navbar brand styling */
+.navbar-header a.navbar-brand {
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    padding: 20px 0; /* Consistent padding */
+    text-transform: uppercase;
+    transition: padding 0.3s ease; /* Smooth transition */
+}
+
+/* Prevent any changes in padding or margin on hover */
+.navbar-header a.navbar-brand:hover,
+.navbar-header a.navbar-brand:focus {
+    color: #fff;
+    padding: 15px 0; /* Keep padding consistent on hover */
+    text-decoration: none; /* Prevent text underline */
+}
+
+/* Add a span for a specific color on hover */
+.navbar-header a.navbar-brand span {
+    display: inline-block;
+    color: #4e4ffa; /* Specific color for the span text */
+}
+
+/* Hover state for the span */
+.navbar-header a.navbar-brand:hover span {
+    color: #ffcc00; /* Change color when hovered */
+}
+
+/* !! */
+
 /*-------------------------------------
         3.  Welcome-hero
 --------------------------------------*/
