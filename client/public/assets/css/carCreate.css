@@ -1,0 +1,46 @@
+.create-post-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.create-post-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-post-form .form-group {
+    margin-bottom: 20px;
+}
+
+.create-post-form .form-group label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.create-post-form .form-group input,
+.create-post-form .form-group select,
+.create-post-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.create-post-form .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4e4ffa;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.create-post-form .submit-btn:hover {
+    background-color: #3e3db3;
+}

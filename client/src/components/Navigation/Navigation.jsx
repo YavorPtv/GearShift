@@ -45,7 +45,7 @@ export default function Navigation() {
                                         <a href="/cars">catalog</a>
                                     </li>
                                     <li className="scroll">
-                                        <a href="#new-cars">add post</a>
+                                        <a href="/cars/create">add post</a>
                                     </li>
                                     <li className="scroll">
                                         <a href="#featured-cars">profile</a>
