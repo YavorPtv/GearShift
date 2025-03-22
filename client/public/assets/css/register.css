@@ -1,26 +1,25 @@
-.create-post-form {
+/* Register Form Styles */
+.register-form-container {
     max-width: 600px;
-    margin: 40px auto;
+    margin: 120px auto;
     padding: 20px;
 }
 
-.create-post-form h2 {
+.register-form-container h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.create-post-form .form-group {
+.register-form-container .register-form-group {
     margin-bottom: 20px;
 }
 
-.create-post-form .form-group label {
+.register-form-container .register-form-group label {
     font-size: 16px;
     font-weight: 500;
 }
 
-.create-post-form .form-group input,
-.create-post-form .form-group select,
-.create-post-form .form-group textarea {
+.register-form-container .register-form-group input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -28,7 +27,7 @@
     border-radius: 4px;
 }
 
-.create-post-form .submit-btn {
+.register-form-container button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -41,6 +40,6 @@
     border-radius: 4px;
 }
 
-.create-post-form .submit-btn:hover {
+.register-form-container button:hover {
     background-color: #3e3db3;
 }

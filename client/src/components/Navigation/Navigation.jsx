@@ -5,10 +5,10 @@ export default function Navigation() {
         { name: 'Home', to: '/', exact: true },
         { name: 'Catalog', to: '/cars' },
         { name: 'Add Post', to: '/cars/create' },
-        { name: 'Profile', to: '#featured-cars' },
-        { name: 'Contacts', to: '#contact' },
-        { name: 'Log In', to: '#contact' },
-        { name: 'Sign In', to: '#contact' }
+        { name: 'Profile', to: '/profile' },
+        { name: 'Contacts', to: '/contacts' },
+        { name: 'Login', to: '/login' },
+        { name: 'Register', to: '/register' }
     ];
 
     return (
