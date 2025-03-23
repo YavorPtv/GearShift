@@ -8,6 +8,7 @@ import CarCreate from './components/Car-Create/CarCreate';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import { UserProvider } from './providers/UserProvider';
+import Logout from './components/Logout/Logout';
 
 export default function App() {
 
@@ -20,6 +21,7 @@ export default function App() {
                     <Route path='/cars/create' element={<CarCreate />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/logout' element={<Logout />} />
                 </Routes>
             <Footer />
         </UserProvider>
