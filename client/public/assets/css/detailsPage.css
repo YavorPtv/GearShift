@@ -1,76 +1,86 @@
-/* Car Details Page */
-.car-details-page {
-    background-color: #f5f5f5;
-    padding: 20px 0;
-    color: #333;
+.car-details {
+    margin: 100px auto; 
+    padding: 60px 30px;  /* Increased padding for more space */
 }
 
-.car-details-header {
-    text-align: center;
-    margin-bottom: 20px;
+.top-section {
+    display: flex;
+    align-items: center;
+    gap: 300px;  /* Increased gap between image and details */
+    margin-right: 100px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
 }
 
 .car-image {
-    max-width: 100%;
+    margin-left: 100px;
+    width: 100%;  /* Increased width of the image */
+    max-width: 100%;  /* Increased width of the image */
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    border-radius: 15px;  /* Slightly rounded edges */
 }
 
-.car-info {
+.info-container {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -150px;
 }
 
-.car-overview {
-    flex: 1 1 45%;
-}
-
-.car-overview h1 {
-    font-size: 2.5rem;
-    color: #4e4ffa; /* Purple accent color */
-    margin-bottom: 10px;
-}
-
-.car-year-type, .car-color {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: #666;
-}
-
-.car-performance {
-    flex: 1 1 45%;
-}
-
-.car-performance p {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.car-price-description {
-    flex: 1 1 100%;
-    margin-top: 30px;
-    text-align: center;
-}
-
-.price {
-    font-size: 2rem;
+.section-title {
+    font-size: 32px;  /* Increased font size */
     font-weight: bold;
-    color: #4e4ffa;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
+    border-bottom: 4px solid #d4af37;
+    display: inline-block;
+    padding-bottom: 8px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.car-price-description p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+.car-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 60px;  /* Increased gap between specs */
+    font-size: 18px;  /* Larger font for specs */
+}
+
+.spec {
+    padding: 12px;
+    background: #f8f8f8;
+    border-radius: 8px;  /* Larger radius for rounded corners */
+}
+
+.book-button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 16px 30px;  /* Larger button padding */
+    font-size: 22px;  /* Larger font size for button */
+    font-weight: bold;
+    border-radius: 8px;  /* Slightly more rounded button */
+    cursor: pointer;
+    margin-top: 30px;  /* Increased margin for spacing */
+}
+
+.book-button:hover {
+    background-color: #b8962e;
+}
+
+.description-section {
+    text-align: center;
+    margin-top: 70px;  /* Increased space above description */
+}
+
+.description {
     color: #444;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: justify;
+    font-size: 22px;  /* Larger font size for description */
+    line-height: 1.8;
+    max-width: 1000px;  /* Increased max-width for larger text block */
+    margin: auto;
 }

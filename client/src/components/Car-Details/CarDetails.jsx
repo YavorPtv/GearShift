@@ -8,27 +8,36 @@ export default function CarDetails() {
     const { car } = useCar(carId);
 
     return (
-        <div className="car-details-page">
-            <div className="container">
-                <div className="car-details-header">
-                    <img src={car.imageUrl} alt={`${car.brand} ${car.model}`} className="car-image" />
+        <div className="car-details">
+            <div className="top-section">
+                <div className="image-container">
+                    <img
+                        src={car.imageUrl}
+                        alt={`${car.brand} ${car.model}`}
+                        className="car-image"
+                    />
                 </div>
-                <div className="car-info">
-                    <div className="car-overview">
-                        <h1>{car.brand} {car.model}</h1>
-                        <p className="car-year-type">Year: {car.year} | Type: {car.type}</p>
-                        <p className="car-color">Color: {car.color}</p>
+                <div className="info-container">
+                    <h2 className="section-title">CAR DETAILS</h2>
+                    <div className="car-specs">
+                        <div className="spec"><strong>Make:</strong> {car.brand}</div>
+                        <div className="spec"><strong>Model:</strong> {car.model}</div>
+                        <div className="spec"><strong>Year:</strong> {car.year}</div>
+                        <div className="spec"><strong>Type:</strong> {car.type}</div>
+                        <div className="spec"><strong>Transmission:</strong> {car.transmission}</div>
+                        <div className="spec"><strong>Horsepower:</strong> {car.horsePower} HP</div>
+                        <div className="spec"><strong>0-100 km/h:</strong> {car.time0to100} sec</div>
+                        <div className="spec"><strong>Price:</strong> ${car.price}</div>
                     </div>
-                    <div className="car-performance">
-                        <p><strong>Horsepower:</strong> {car.horsePower} HP</p>
-                        <p><strong>0-100 km/h:</strong> {car.time0to100} sec</p>
-                        <p><strong>Transmission:</strong> {car.transmission}</p>
-                    </div>
-                    <div className="car-price-description">
-                        <h2 className="price">${car.price}</h2>
-                        <p>{car.description}</p>
-                    </div>
+                    <button className="book-button">Book Now</button>
                 </div>
+            </div>
+
+            <div className="description-section">
+                <h2 className="section-title">DESCRIPTION</h2>
+                <p className="description">
+                    {car.description}
+                </p>
             </div>
         </div>
     );
