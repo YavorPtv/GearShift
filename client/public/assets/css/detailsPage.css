@@ -10,14 +10,14 @@
     margin-right: 100px;
 }
 
-.image-container {
+.image-container-details {
     flex: 1;
     display: flex;
     justify-content: flex-start;
     padding: 0;
 }
 
-.car-image {
+.car-image-details {
     margin-left: 100px;
     width: 100%;  /* Increased width of the image */
     max-width: 100%;  /* Increased width of the image */

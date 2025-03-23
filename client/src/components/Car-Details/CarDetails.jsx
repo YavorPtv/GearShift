@@ -10,11 +10,11 @@ export default function CarDetails() {
     return (
         <div className="car-details">
             <div className="top-section">
-                <div className="image-container">
+                <div className="image-container-details">
                     <img
                         src={car.imageUrl}
                         alt={`${car.brand} ${car.model}`}
-                        className="car-image"
+                        className="car-image-details"
                     />
                 </div>
                 <div className="info-container">

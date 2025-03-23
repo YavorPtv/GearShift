@@ -16,10 +16,10 @@ export default function CarCatalogItem({
                 key={_id}
                 className="car-catalog-item-link"
             >
-                <div className="car-image">
+                <div className="car-image-catalog">
                     <img src={imageUrl} alt={`${brand} ${model}`} />
                 </div>
-                <div className="car-details">
+                <div className="car-details-catalog">
                     <h3 className="car-model">{brand} {model}</h3>
                     <p className="car-year">Year: {year}</p>
                     <p className="car-horsepower">Horsepower: {horsePower} HP</p>

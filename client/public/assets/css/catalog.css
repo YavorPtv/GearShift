@@ -38,7 +38,7 @@
 }
 
 /* Image styling for each car */
-.car-image img {
+.car-image-catalog img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -47,7 +47,7 @@
 }
 
 /* Car details section */
-.car-details {
+.car-details-catalog {
     padding: 15px;
 }
 
