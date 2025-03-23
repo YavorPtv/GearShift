@@ -3,6 +3,16 @@
     margin-top: 40px;
 }
 
+.car-catalog-item-link {
+    text-decoration: none; /* Removes the default underline */
+    display: block;        /* Makes the whole area clickable */
+}
+
+.car-catalog-item-link:hover {
+    opacity: 0.8;          /* Slight hover effect */
+    cursor: pointer;
+}
+
 .car-catalog-container {
     display: flex;
     flex-wrap: wrap;

@@ -17,6 +17,19 @@ export const useCars = () => {
     };
 }
 
+export const useCar = (carId) => {
+    const [car, setCar] = useState([]);
+
+    useEffect(() => {
+        request.get(`${baseUrl}/${carId}`)
+            .then(setCar);
+    }, []);
+
+    return {
+        car,
+    };
+}
+
 export const useCarCreate = () => {
     const { request } = useAuth();
 

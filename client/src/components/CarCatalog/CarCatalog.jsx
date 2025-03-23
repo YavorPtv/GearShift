@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useCars } from "../../api/carApi";
 import CarCatalogItem from "./CarCatalogItem/CarCatalogItem";
 
@@ -16,13 +17,7 @@ export default function Catalog() {
                         {cars.length > 0 
                             ? cars.map(car => (
                                 <CarCatalogItem
-                                    key={car._id}
-                                    imageUrl={car.imageUrl}
-                                    brand={car.brand}
-                                    model={car.model}
-                                    year={car.year}
-                                    horsePower={car.horsePower}
-                                    price={car.price}
+                                    {...car}
                                 />
                             ))
                             : <h3>No listings of cars yet</h3>

@@ -9,6 +9,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import { UserProvider } from './providers/UserProvider';
 import Logout from './components/Logout/Logout';
+import CarDetails from './components/Car-Details/CarDetails';
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
+                    <Route path='/cars/:carId/details' element={<CarDetails />} />
                 </Routes>
             <Footer />
         </UserProvider>
