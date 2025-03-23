@@ -1,23 +1,31 @@
 import { NavLink } from "react-router";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function Navigation() {
+    const isAuth = !!useUserContext().accessToken;
+
     const navItems = [
-        { name: 'Home', to: '/', exact: true },
+        { name: 'Home', to: '/' },
         { name: 'Catalog', to: '/cars' },
+        { name: 'Contacts', to: '/contacts' },
+    ];
+
+    const authItems = [
         { name: 'Add Post', to: '/cars/create' },
         { name: 'Profile', to: '/profile' },
-        { name: 'Contacts', to: '/contacts' },
+        { name: 'Logout', to: '/logout' },
+    ];
+
+    const guestItems = [
         { name: 'Login', to: '/login' },
-        { name: 'Register', to: '/register' }
+        { name: 'Register', to: '/register' },
     ];
 
     return (
         <div className="top-area">
             <div className="header-area">
-                {/* Start Navigation */}
                 <nav className="navbar navbar-default bootsnav navbar-sticky navbar-scrollspy">
                     <div className="container">
-                        {/* Start Header Navigation */}
                         <div className="navbar-header">
                             <button
                                 type="button"
@@ -32,16 +40,13 @@ export default function Navigation() {
                                 <span />
                             </a>
                         </div>
-                        {/*/.navbar-header*/}
 
-                        {/* Navbar Links */}
                         <div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                             <ul className="nav navbar-nav navbar-right">
                                 {navItems.map((item, index) => (
                                     <li key={index} className="scroll">
                                         <NavLink
                                             to={item.to}
-                                            exact={item.exact}
                                             className="nav-link"
                                             activeClassName="active"
                                         >
@@ -49,16 +54,36 @@ export default function Navigation() {
                                         </NavLink>
                                     </li>
                                 ))}
+
+                                {isAuth
+                                    ? authItems.map((item, index) => (
+                                        <li key={index} className="scroll">
+                                            <NavLink
+                                                to={item.to}
+                                                className="nav-link"
+                                                activeClassName="active"
+                                            >
+                                                {item.name}
+                                            </NavLink>
+                                        </li>
+                                    ))
+                                    : guestItems.map((item, index) => (
+                                        <li key={index} className="scroll">
+                                            <NavLink
+                                                to={item.to}
+                                                className="nav-link"
+                                                activeClassName="active"
+                                            >
+                                                {item.name}
+                                            </NavLink>
+                                        </li>
+                                    ))}
                             </ul>
                         </div>
                     </div>
                 </nav>
-                {/*/nav*/}
-                {/* End Navigation */}
             </div>
-            {/*/.header-area*/}
             <div className="clearfix" />
         </div>
-        /* /.top-area */
     );
 }
