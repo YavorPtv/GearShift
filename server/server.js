@@ -1340,7 +1340,12 @@
     			email: "admin@abv.bg",
     			username: "Admin",
     			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
+    		},
+            "298fab15-a135-4c20-9a2a-d782820a1865": {
+    			email: "test@test",
+    			username: "test",
+    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"            
+            }
     	},
     	sessions: {
     	}
@@ -1649,7 +1654,159 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
+    	},
+        cars: {
+        "cf35afa2-0758-4681-a859-04a42e83b4bf": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Ferrari",
+            "model": "SF90 Stradale",
+            "horsePower": "986",
+            "transmission": "automatic",
+            "price": "507000",
+            "description": "Hybrid supercar with a 4.0L V8 engine and three electric motors.",
+            "time0to100": "2.5",
+            "year": "2023",
+            "color": "Red",
+            "type": "Coupe",
+            "_createdOn": 1742744506859,
+            "_id": "cf35afa2-0758-4681-a859-04a42e83b4bf"
+        },
+        "a2d2f7c8-34e6-42ab-95b3-6d127aaf9c3e": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Lamborghini",
+            "model": "Aventador SVJ",
+            "horsePower": "759",
+            "transmission": "automatic",
+            "price": "517770",
+            "description": "V12-powered hypercar with aggressive aerodynamics.",
+            "time0to100": "2.8",
+            "year": "2021",
+            "color": "Green",
+            "type": "Coupe",
+            "_createdOn": 1742744507860,
+            "_id": "a2d2f7c8-34e6-42ab-95b3-6d127aaf9c3e"
+        },
+        "b3e9f4c1-52d7-45ef-8a93-7c3bde8f5a6c": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Porsche",
+            "model": "911 Turbo S",
+            "horsePower": "640",
+            "transmission": "automatic",
+            "price": "204850",
+            "description": "Iconic sports car with a twin-turbo flat-six engine.",
+            "time0to100": "2.6",
+            "year": "2023",
+            "color": "Yellow",
+            "type": "Coupe",
+            "_createdOn": 1742744508861,
+            "_id": "b3e9f4c1-52d7-45ef-8a93-7c3bde8f5a6c"
+        },
+        "c4a8d9f5-63b2-49d5-bb94-8c2fa7e5b3c4": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "McLaren",
+            "model": "765LT",
+            "horsePower": "755",
+            "transmission": "automatic",
+            "price": "385000",
+            "description": "Track-focused supercar with lightweight design.",
+            "time0to100": "2.7",
+            "year": "2022",
+            "color": "Orange",
+            "type": "Coupe",
+            "_createdOn": 1742744509862,
+            "_id": "c4a8d9f5-63b2-49d5-bb94-8c2fa7e5b3c4"
+        },
+        "d5c6e4f8-72a3-4bd6-abb5-9c1eb2a5f6d7": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Bugatti",
+            "model": "Chiron Super Sport",
+            "horsePower": "1578",
+            "transmission": "automatic",
+            "price": "3900000",
+            "description": "Ultimate hypercar with a quad-turbo W16 engine.",
+            "time0to100": "2.4",
+            "year": "2023",
+            "color": "Blue",
+            "type": "Coupe",
+            "_createdOn": 1742744510863,
+            "_id": "d5c6e4f8-72a3-4bd6-abb5-9c1eb2a5f6d7"
+        },
+        "e6d7f9a3-83c2-4bd7-8cb6-a2f7b5e6d8f9": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Koenigsegg",
+            "model": "Jesko",
+            "horsePower": "1600",
+            "transmission": "automatic",
+            "price": "3000000",
+            "description": "High-performance hypercar with advanced aerodynamics.",
+            "time0to100": "2.5",
+            "year": "2022",
+            "color": "White",
+            "type": "Coupe",
+            "_createdOn": 1742744511864,
+            "_id": "e6d7f9a3-83c2-4bd7-8cb6-a2f7b5e6d8f9"
+        },
+        "f7c8d2e5-94a1-4cd8-abb7-b1d6a4e7f8c9": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Aston Martin",
+            "model": "Valkyrie",
+            "horsePower": "1160",
+            "transmission": "automatic",
+            "price": "3000000",
+            "description": "F1-inspired hypercar with a naturally aspirated V12.",
+            "time0to100": "2.6",
+            "year": "2022",
+            "color": "Silver",
+            "type": "Coupe",
+            "_createdOn": 1742744512865,
+            "_id": "f7c8d2e5-94a1-4cd8-abb7-b1d6a4e7f8c9"
+        },
+        "g8e9f3a5-56b4-4dc9-bbc8-c2a7d5f8e9a3": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Pagani",
+            "model": "Huayra BC",
+            "horsePower": "791",
+            "transmission": "automatic",
+            "price": "2800000",
+            "description": "Limited-production hypercar with Italian craftsmanship.",
+            "time0to100": "2.8",
+            "year": "2022",
+            "color": "Carbon Black",
+            "type": "Coupe",
+            "_createdOn": 1742744513866,
+            "_id": "g8e9f3a5-56b4-4dc9-bbc8-c2a7d5f8e9a3"
+        },
+        "h9f2a3d5-67c5-4ed9-bbc9-d1e8a5f9c7b4": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Mercedes-AMG",
+            "model": "ONE",
+            "horsePower": "1063",
+            "transmission": "automatic",
+            "price": "2700000",
+            "description": "F1-powered hypercar with hybrid technology.",
+            "time0to100": "2.7",
+            "year": "2023",
+            "color": "Silver",
+            "type": "Coupe",
+            "_createdOn": 1742744514867,
+            "_id": "h9f2a3d5-67c5-4ed9-bbc9-d1e8a5f9c7b4"
+        },
+        "i2d3e5f7-78c6-4fd9-bbc0-e3a9c7d5f8a2": {
+            "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+            "brand": "Tesla",
+            "model": "Roadster",
+            "horsePower": "1000",
+            "transmission": "automatic",
+            "price": "200000",
+            "description": "Electric supercar with record-breaking acceleration.",
+            "time0to100": "1.9",
+            "year": "2023",
+            "color": "Red",
+            "type": "Coupe",
+            "_createdOn": 1742744515868,
+            "_id": "i2d3e5f7-78c6-4fd9-bbc0-e3a9c7d5f8a2"
+        }
+    }
     };
     var rules$1 = {
     	users: {
