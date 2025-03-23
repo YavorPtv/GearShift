@@ -47,8 +47,7 @@ export default function Navigation() {
                                     <li key={index} className="scroll">
                                         <NavLink
                                             to={item.to}
-                                            className="nav-link"
-                                            activeClassName="active"
+                                            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                                         >
                                             {item.name}
                                         </NavLink>
@@ -60,8 +59,7 @@ export default function Navigation() {
                                         <li key={index} className="scroll">
                                             <NavLink
                                                 to={item.to}
-                                                className="nav-link"
-                                                activeClassName="active"
+                                                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                                             >
                                                 {item.name}
                                             </NavLink>
@@ -71,8 +69,7 @@ export default function Navigation() {
                                         <li key={index} className="scroll">
                                             <NavLink
                                                 to={item.to}
-                                                className="nav-link"
-                                                activeClassName="active"
+                                                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                                             >
                                                 {item.name}
                                             </NavLink>
