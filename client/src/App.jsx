@@ -7,11 +7,12 @@ import Catalog from './components/Catalog/Catalog';
 import CarCreate from './components/Car-Create/CarCreate';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import { UserProvider } from './providers/UserProvider';
 
 export default function App() {
 
     return (
-        <>
+        <UserProvider>
             <Navigation />
                 <Routes>
                     <Route index element={<Home />}/>
@@ -21,7 +22,7 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                 </Routes>
             <Footer />
-        </>
+        </UserProvider>
 
     )
 }
