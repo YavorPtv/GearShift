@@ -1,7 +1,7 @@
 .create-post-form {
     max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: auto;
+    padding: 150px 20px 20px;
 }
 
 .create-post-form h2 {

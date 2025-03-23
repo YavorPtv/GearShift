@@ -1,8 +1,22 @@
+import { useNavigate } from "react-router";
+import { useCarCreate } from "../../api/carApi";
+
 export default function CarCreate() {
+    const navigate = useNavigate();
+    const { create } = useCarCreate();
+    
+    const onCreate = async (formData) => {
+        const carData = Object.fromEntries(formData);
+
+        await create(carData);
+
+        navigate('/cars');
+    }
+
     return (
-        <div className="create-post-form" style={{ maxWidth: '600px', margin: 'auto', padding: '150px 20px 20px' }}>
+        <div className="create-post-form">
             <h2>Create a Post for Your Car</h2>
-            <form>
+            <form action={onCreate}>
                 <div className="form-group">
                     <label htmlFor="brand">Brand:</label>
                     <input
