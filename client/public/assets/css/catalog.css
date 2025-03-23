@@ -1,10 +1,15 @@
 /* Container for the whole car catalog */
+#featured-cars{
+    margin-top: 40px;
+}
+
 .car-catalog-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     justify-content: space-around;
+    margin-top: 30px;
 }
 
 /* Styling for each car item */

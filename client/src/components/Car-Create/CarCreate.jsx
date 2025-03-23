@@ -155,6 +155,19 @@ export default function CarCreate() {
                     </select>
                 </div>
 
+                <div className="form-group">
+                    <label htmlFor="imageUrl">Image URL:</label>
+                    <input
+                        type="text"
+                        id="imageUrl"
+                        name="imageUrl"
+                        // value={formData.imageUrl}
+                        // onChange={handleInputChange}
+                        required
+                        placeholder="Enter image URL of the car"
+                    />
+                </div>
+
                 <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4e4ffa', color: '#fff', border: 'none', cursor: 'pointer' }}>
                     Submit
                 </button>
