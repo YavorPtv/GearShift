@@ -49,7 +49,7 @@ body{
 	overflow-x:hidden;
 }
 
-a,a:hover,a:active,a:focus {
+/* a,a:hover,a:active,a:focus {
 	display:inline-block;
 	text-decoration:none;
 	color: #444a57;
@@ -57,7 +57,14 @@ a,a:hover,a:active,a:focus {
 	padding:0;
     font-weight: 500;
     text-transform: capitalize;
+} */
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none; /* Removes focus outline */
 }
+
 h1,h2,h3,h4,h5,h6 { 
 	margin: 0;
 	color:#444a57;
@@ -273,8 +280,6 @@ body {
     height: 100vh;
 }
 
-
-
 .welcome-hero:before {
     position: absolute;
     content: "";
@@ -283,11 +288,18 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(42,45,84,.60);
+    pointer-events: none; /* Fix 1: Allows clicks */
 }
 .header-area{position: absolute;top:0;left:0;width: 100%;z-index: 99;}
 
 /*.welcome-hero-txt*/
-.welcome-hero-txt{text-align: center;padding:290px 0 372px;}
+.welcome-hero-txt{
+    position: relative; /* Fix 2: Brings buttons above overlay */
+    z-index: 2;
+    text-align: center;
+    padding:290px 0 372px;
+    text-transform: capitalize;
+}
 .welcome-hero-txt h2 {
     font-size: 42px;
     color: #fff;
@@ -304,21 +316,45 @@ body {
     margin: 0 auto;
 }
 .welcome-btn {
-    display: inline-block;
-    width: 230px;
-    height: 60px;
-    background: #4e4ffa;
-    color: #fff;
-    border-radius: 3px;
-    margin-top: 55px;
-    -webkit-transition: .3s linear; 
-    -moz-transition:.3s linear; 
-    -ms-transition:.3s linear; 
-    -o-transition:.3s linear;
-    transition: .3s linear;
+    padding: 20px 36px;
+    display: inline-block; /* Makes Link behave like a button */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #4e4ffa, #6a82fb);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remove default link underline */
+    margin: 40px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
-.welcome-btn:hover{
-    background: #0102fa;
+
+/* Subtle pulse effect on hover */
+.welcome-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+}
+
+.welcome-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Smooth transition */
+.welcome-btn:hover {
+    color: white;  /* Keep text white */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(78, 79, 250, 0.3);
 }
 /*.welcome-hero-txt*/
 
