@@ -10,11 +10,13 @@ import Login from './components/Login/Login';
 import { UserProvider } from './providers/UserProvider';
 import Logout from './components/Logout/Logout';
 import CarDetails from './components/Car-Details/CarDetails';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 export default function App() {
 
     return (
         <UserProvider>
+            <ScrollToTop />
             <Navigation />
                 <Routes>
                     <Route index element={<Home />}/>
