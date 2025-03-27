@@ -10,11 +10,9 @@ export default function CarDetails() {
     const { carId } = useParams();
     const { car } = useCar(carId);
     const { deleteCar } = useCarDelete();
-    const { userId, email, username } = useAuth();
+    const { userId, username } = useAuth();
     const { create } = useCreateComment();
     const { comments, addComment } = useComments(carId);
-
-    console.log(comments);
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
