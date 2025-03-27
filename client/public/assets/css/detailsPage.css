@@ -1,12 +1,12 @@
 .car-details {
     margin: 100px auto; 
-    padding: 60px 30px;  /* Increased padding for more space */
+    padding: 60px 30px;
 }
 
 .top-section {
     display: flex;
     align-items: center;
-    gap: 300px;  /* Increased gap between image and details */
+    gap: 300px;
     margin-right: 100px;
 }
 
@@ -19,11 +19,11 @@
 
 .car-image-details {
     margin-left: 100px;
-    width: 100%;  /* Increased width of the image */
-    max-width: 100%;  /* Increased width of the image */
+    width: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 15px;  /* Slightly rounded edges */
+    border-radius: 15px;
 }
 
 .info-container {
@@ -35,9 +35,9 @@
 }
 
 .section-title {
-    font-size: 32px;  /* Increased font size */
+    font-size: 32px;
     font-weight: bold;
-    border-bottom: 4px solid #d4af37;
+    border-bottom: 4px solid #4e4ffa;  /* Updated color */
     display: inline-block;
     padding-bottom: 8px;
     margin-bottom: 20px;
@@ -46,41 +46,58 @@
 .car-specs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px 60px;  /* Increased gap between specs */
-    font-size: 18px;  /* Larger font for specs */
+    gap: 25px 60px;
+    font-size: 18px;
 }
 
 .spec {
     padding: 12px;
     background: #f8f8f8;
-    border-radius: 8px;  /* Larger radius for rounded corners */
+    border-radius: 8px;
 }
 
-.book-button {
-    background-color: #d4af37;
+/* Button group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Edit & Delete Buttons */
+.edit-button, .delete-button {
+    background-color: #4e4ffa;  /* Your accent color */
     color: white;
     border: none;
-    padding: 16px 30px;  /* Larger button padding */
-    font-size: 22px;  /* Larger font size for button */
+    padding: 16px 30px;
+    font-size: 22px;
     font-weight: bold;
-    border-radius: 8px;  /* Slightly more rounded button */
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 30px;  /* Increased margin for spacing */
+    transition: 0.3s;
 }
 
-.book-button:hover {
-    background-color: #b8962e;
+.edit-button:hover {
+    background-color: #3d3dd9;
+}
+
+.delete-button {
+    background-color: #ff4e4e;  /* Red for delete */
+}
+
+.delete-button:hover {
+    background-color: #d93d3d;
 }
 
 .description-section {
     text-align: center;
-    margin-top: 70px;  /* Increased space above description */
+    margin-top: 70px;
 }
 
 .description {
     color: #444;
-    font-size: 22px;  /* Larger font size for description */
+    font-size: 22px;
     line-height: 1.8;
-    max-width: 1000px;  /* Increased max-width for larger text block */
+    max-width: 1000px;
     margin: auto;
 }

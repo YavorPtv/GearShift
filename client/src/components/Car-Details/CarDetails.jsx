@@ -1,9 +1,7 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useCar } from "../../api/carApi";
-import useAuth from "../../hooks/useAuth";
 
 export default function CarDetails() {
-    // const { _id: userId } = useAuth();
     const { carId } = useParams();
     const { car } = useCar(carId);
 
@@ -29,7 +27,12 @@ export default function CarDetails() {
                         <div className="spec"><strong>0-100 km/h:</strong> {car.time0to100} sec</div>
                         <div className="spec"><strong>Price:</strong> ${car.price}</div>
                     </div>
-                    <button className="book-button">Book Now</button>
+
+                    {/* Edit & Delete Buttons */}
+                    <div className="button-group">
+                        <Link to={`/cars/${carId}/edit`} className="edit-button">Edit</Link>
+                        <Link to={`/cars/${carId}/delete`} className="delete-button">Delete</Link>
+                    </div>
                 </div>
             </div>
 
