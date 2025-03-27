@@ -11,6 +11,7 @@ import { UserProvider } from './providers/UserProvider';
 import Logout from './components/Logout/Logout';
 import CarDetails from './components/Car-Details/CarDetails';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import CarEdit from './components/Car-Edit/CarEdit';
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/cars/:carId/details' element={<CarDetails />} />
+                    <Route path='/cars/:carId/edit' element={<CarEdit />} />
                 </Routes>
             <Footer />
         </UserProvider>

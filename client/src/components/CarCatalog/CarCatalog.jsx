@@ -17,6 +17,7 @@ export default function Catalog() {
                         {cars.length > 0 
                             ? cars.map(car => (
                                 <CarCatalogItem
+                                    key={car._id}
                                     {...car}
                                 />
                             ))

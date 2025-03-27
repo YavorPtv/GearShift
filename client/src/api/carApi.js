@@ -41,3 +41,15 @@ export const useCarCreate = () => {
         create,
     }
 }
+
+export const useCarEdit = () => {
+    const { request } = useAuth();
+
+    const edit = (carId, carData) => 
+        request.put(`${baseUrl}/${carId}`, {...carData, _id: carId});
+
+    return {
+        edit,
+    }
+}
+}
