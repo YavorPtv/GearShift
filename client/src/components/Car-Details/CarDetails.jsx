@@ -1,11 +1,20 @@
 import { Link, useNavigate, useParams } from "react-router";
 import { useCar, useCarDelete } from "../../api/carApi";
+import useAuth from "../../hooks/useAuth";
+import CommentsView from "../Comments-View/CommentsView";
+import CommentsCreate from "../Comments-Create/CommentsCreate";
+import { useComments, useCreateComment } from "../../api/commentsApi";
 
 export default function CarDetails() {
     const navigate = useNavigate();
     const { carId } = useParams();
     const { car } = useCar(carId);
     const { deleteCar } = useCarDelete();
+    const { userId, email, username } = useAuth();
+    const { create } = useCreateComment();
+    const { comments, addComment } = useComments(carId);
+
+    console.log(comments);
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
@@ -13,11 +22,21 @@ export default function CarDetails() {
         if (!hasConfirm) {
             return;
         }
-        
+
         await deleteCar(carId);
 
         navigate('/cars');
     }
+
+    const createCommentHandler = async (formData) => {
+        const comment = formData.get('comment');
+
+        const commentResult = await create(carId, comment);
+
+        addComment({...commentResult, author: { username }});
+    }
+
+    const isOwner = userId === car._ownerId;
 
     return (
         <div className="car-details">
@@ -43,10 +62,13 @@ export default function CarDetails() {
                     </div>
 
                     {/* Edit & Delete Buttons */}
-                    <div className="button-group">
-                        <Link to={`/cars/${carId}/edit`} className="edit-button">Edit</Link>
-                        <Link onClick={carDeleteHandler} className="delete-button">Delete</Link>
-                    </div>
+                    {isOwner && (
+                        <div className="button-group">
+                            <Link to={`/cars/${carId}/edit`} className="edit-button">Edit</Link>
+                            <button onClick={carDeleteHandler} className="delete-button">Delete</button>
+                        </div>
+                    )}
+
                 </div>
             </div>
 
@@ -56,6 +78,17 @@ export default function CarDetails() {
                     {car.description}
                 </p>
             </div>
+            <div className="comments-section">
+
+                <CommentsView comments={comments}/>
+
+                <CommentsCreate 
+                    username={username}
+                    onCreate={createCommentHandler}
+                />
+
+            </div>
+
         </div>
     );
 }
