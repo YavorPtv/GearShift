@@ -1,9 +1,23 @@
-import { Link, useParams } from "react-router";
-import { useCar } from "../../api/carApi";
+import { Link, useNavigate, useParams } from "react-router";
+import { useCar, useCarDelete } from "../../api/carApi";
 
 export default function CarDetails() {
+    const navigate = useNavigate();
     const { carId } = useParams();
     const { car } = useCar(carId);
+    const { deleteCar } = useCarDelete();
+
+    const carDeleteHandler = async () => {
+        const hasConfirm = confirm(`Are you sure you want to delete this car?`);
+
+        if (!hasConfirm) {
+            return;
+        }
+        
+        await deleteCar(carId);
+
+        navigate('/cars');
+    }
 
     return (
         <div className="car-details">
@@ -31,7 +45,7 @@ export default function CarDetails() {
                     {/* Edit & Delete Buttons */}
                     <div className="button-group">
                         <Link to={`/cars/${carId}/edit`} className="edit-button">Edit</Link>
-                        <Link to={`/cars/${carId}/delete`} className="delete-button">Delete</Link>
+                        <Link onClick={carDeleteHandler} className="delete-button">Delete</Link>
                     </div>
                 </div>
             </div>
