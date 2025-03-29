@@ -12,6 +12,8 @@ import Logout from './components/Logout/Logout';
 import CarDetails from './components/Car-Details/CarDetails';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CarEdit from './components/Car-Edit/CarEdit';
+import AuthGuard from './components/guards/AuthGuard';
+import GuestGuard from './components/guards/GuestGuard';
 
 export default function App() {
 
@@ -22,12 +24,18 @@ export default function App() {
                 <Routes>
                     <Route index element={<Home />}/>
                     <Route path='/cars' element={<CarCatalog />} />
-                    <Route path='/cars/create' element={<CarCreate />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/logout' element={<Logout />} />
                     <Route path='/cars/:carId/details' element={<CarDetails />} />
-                    <Route path='/cars/:carId/edit' element={<CarEdit />} />
+
+                    <Route element={<AuthGuard />}>
+                        <Route path='/cars/create' element={<CarCreate />} />
+                        <Route path='/cars/:carId/edit' element={<CarEdit />} />
+                        <Route path='/logout' element={<Logout />} />
+                    </Route>
+
+                    <Route element={<GuestGuard />}>
+                        <Route path='/register' element={<Register />} />
+                        <Route path='/login' element={<Login />} />
+                    </Route>
                 </Routes>
             <Footer />
         </UserProvider>
