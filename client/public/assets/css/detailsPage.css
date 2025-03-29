@@ -103,6 +103,7 @@
 }
 
 /* Comments Section */
+/* Comments Section */
 .comments-section {
     margin-top: 50px;
     text-align: center;
@@ -122,20 +123,69 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
 }
 
+/* Comment Header: Username & Actions */
+.comment-header {
+    display: flex;
+    align-items: center;
+    position: relative; /* Keeps buttons positioned separately */
+    width: 100%;
+}
+
+/* Username */
 .username {
     font-size: 18px;
     font-weight: bold;
     color: #4e4ffa;
+    flex: 1; /* Allows it to take up available space */
+    text-align: center; /* Centers the text */
+    margin: 0 auto; /* Centers it within flex */
 }
 
+/* Comment Actions */
+.comment-actions {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+/* Comment Edit & Delete Buttons */
+.comment-edit-button, .comment-delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+/* Comment Edit Button */
+.comment-edit-button {
+    color: #4e4ffa;
+}
+
+.comment-edit-button:hover {
+    color: #3d3dd9;
+}
+
+/* Comment Delete Button */
+.comment-delete-button {
+    color: #ff4e4e;
+}
+
+.comment-delete-button:hover {
+    color: #d93d3d;
+}
+
+/* Comment Text */
 .comment-text {
     font-size: 16px;
     color: #555;
     margin-top: 10px;
 }
-
 /* Add Comment Field */
 .add-comment-field {
     background-color: #f8f8f8;
