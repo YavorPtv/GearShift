@@ -1,6 +1,6 @@
 import { FaEdit, FaTrash } from "react-icons/fa"; // Import icons
 import useAuth from "../../hooks/useAuth";
-import { useComments, useEditComment } from "../../api/commentsApi";
+import { useComments, useDeleteComment, useEditComment } from "../../api/commentsApi";
 import { useState } from "react";
 
 export default function CommentsView({
@@ -10,7 +10,8 @@ export default function CommentsView({
     const [editingId, setEditingId] = useState(null);
     const [editedComment, setEditedComment] = useState("");
     const { edit } = useEditComment();
-    const { comments, editComment } = useComments(carId);
+    const { deleteApi } = useDeleteComment();
+    const { comments, editComment, deleteComment } = useComments(carId);
 
     const handleEditClick = (id, comment) => {
         setEditingId(id);
@@ -31,6 +32,11 @@ export default function CommentsView({
         editComment({_id: commentId, comment: editedComment});
     }
 
+    const handleDelete = async (commentId) => {
+        await deleteApi(commentId);
+        deleteComment({commentId});
+    }
+
     return (
         <>
             <h2 className="section-title">COMMENTS</h2>
@@ -45,17 +51,22 @@ export default function CommentsView({
                                     <div className="comment-actions">
                                         <button 
                                             className="comment-edit-button"
-                                            onClick={() => handleEditClick(_id, comment)}
+                                            onClick={
+                                                editingId === _id 
+                                                ? () => handleCancelEdit()
+                                                : () => handleEditClick(_id, comment)
+                                            }
                                         >
                                             <FaEdit />
                                         </button>
-                                        <button className="comment-delete-button">
+                                        <button className="comment-delete-button" onClick={() => handleDelete(_id)}>
                                             <FaTrash />
                                         </button>
                                     </div>
                                 )}
 
                             </div>
+                            {/* add another component */}
                             {editingId === _id ? (
                                 <div className="edit-mode">
                                     <textarea

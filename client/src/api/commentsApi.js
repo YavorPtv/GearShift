@@ -14,6 +14,8 @@ function commentsReducer(state, action) {
                 comment._id === action.payload._id 
                     ? {...comment, ...action.payload} 
                     : comment)
+        case 'DELETE_COMMENT':
+            return state.filter((comment) => comment._id !== action.payload.commentId)
         default:
             return state;
     }
@@ -36,7 +38,8 @@ export const useComments = (carId) => {
     return {
         comments,
         addComment: (commentData) => dispatch({type: 'ADD_COMMENT', payload: commentData}),
-        editComment: (commentData) => dispatch({type: 'EDIT_COMMENT', payload: commentData})
+        editComment: (commentData) => dispatch({type: 'EDIT_COMMENT', payload: commentData}),
+        deleteComment: (commentId) => dispatch({type: 'DELETE_COMMENT', payload: commentId})
     }
 }
 
@@ -59,5 +62,16 @@ export const useEditComment = () => {
 
     return {
         edit,
+    }
+}
+
+export const useDeleteComment = () => {
+    const { request } = useAuth();
+
+    const deleteApi = (commentId) => 
+        request.delete(`${baseUrl}/${commentId}`);
+
+    return {
+        deleteApi,
     }
 }
