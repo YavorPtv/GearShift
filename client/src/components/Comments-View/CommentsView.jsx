@@ -1,17 +1,18 @@
-import { FaEdit, FaTrash } from "react-icons/fa"; // Import icons
+import { FaEdit, FaTrash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
-import { useComments, useDeleteComment, useEditComment } from "../../api/commentsApi";
+import { useDeleteComment, useEditComment } from "../../api/commentsApi";
 import { useState } from "react";
 
 export default function CommentsView({
-    carId,
+    comments,
+    editComment,
+    deleteComment
 }) {
     const { userId } = useAuth();
     const [editingId, setEditingId] = useState(null);
     const [editedComment, setEditedComment] = useState("");
     const { edit } = useEditComment();
     const { deleteApi } = useDeleteComment();
-    const { comments, editComment, deleteComment } = useComments(carId);
 
     const handleEditClick = (id, comment) => {
         setEditingId(id);
@@ -52,7 +53,7 @@ export default function CommentsView({
                                         <button 
                                             className="comment-edit-button"
                                             onClick={
-                                                editingId === _id 
+                                                editingId ===  _id 
                                                 ? () => handleCancelEdit()
                                                 : () => handleEditClick(_id, comment)
                                             }

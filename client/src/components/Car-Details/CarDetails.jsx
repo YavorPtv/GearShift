@@ -3,7 +3,7 @@ import { useCar, useCarDelete } from "../../api/carApi";
 import useAuth from "../../hooks/useAuth";
 import CommentsView from "../Comments-View/CommentsView";
 import CommentsCreate from "../Comments-Create/CommentsCreate";
-import { useComments, useCreateComment } from "../../api/commentsApi";
+import { useComments } from "../../api/commentsApi";
 
 export default function CarDetails() {
     const navigate = useNavigate();
@@ -11,8 +11,7 @@ export default function CarDetails() {
     const { car } = useCar(carId);
     const { deleteCar } = useCarDelete();
     const { userId, username } = useAuth();
-    const { create } = useCreateComment();
-    const { addComment } = useComments(carId);
+    const { comments, addComment, editComment, deleteComment } = useComments(carId);
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
@@ -24,14 +23,6 @@ export default function CarDetails() {
         await deleteCar(carId);
 
         navigate('/cars');
-    }
-
-    const createCommentHandler = async (formData) => {
-        const comment = formData.get('comment');
-
-        const commentResult = await create(carId, comment);
-
-        addComment({...commentResult, author: { username }});
     }
 
     const isOwner = userId === car._ownerId;
@@ -78,11 +69,16 @@ export default function CarDetails() {
             </div>
             <div className="comments-section">
 
-                <CommentsView carId={carId}/>
+                <CommentsView 
+                    comments={comments}
+                    editComment={editComment}
+                    deleteComment={deleteComment}
+                />
 
                 <CommentsCreate 
+                    addComment={addComment}
                     username={username}
-                    onCreate={createCommentHandler}
+                    carId={carId}
                 />
 
             </div>

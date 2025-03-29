@@ -1,9 +1,21 @@
+import { useCreateComment } from "../../api/commentsApi";
 import useAuth from "../../hooks/useAuth"
 
 export default function CommentsCreate({
-    onCreate,
-    username
+    carId,
+    username,
+    addComment
 }) {
+    const { create } = useCreateComment();
+
+    const onCreate = async (formData) => {
+        const comment = formData.get('comment');
+
+        const commentResult = await create(carId, comment);
+
+        addComment({...commentResult, author: { username }});
+    }
+
     const { isAuthenticated } = useAuth();
     return (
         <>
