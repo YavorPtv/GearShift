@@ -21,6 +21,7 @@ export default function useAuth() {
         post: requestWrapper.bind(null, 'POST'),
         put: requestWrapper.bind(null, 'PUT'),
         delete: requestWrapper.bind(null, 'DELETE'),
+        patch: requestWrapper.bind(null, 'PATCH'),
     }), [requestWrapper])
 
     return {

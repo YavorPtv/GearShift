@@ -12,7 +12,7 @@ export default function CarDetails() {
     const { deleteCar } = useCarDelete();
     const { userId, username } = useAuth();
     const { create } = useCreateComment();
-    const { comments, addComment } = useComments(carId);
+    const { addComment } = useComments(carId);
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
@@ -78,7 +78,7 @@ export default function CarDetails() {
             </div>
             <div className="comments-section">
 
-                <CommentsView comments={comments}/>
+                <CommentsView carId={carId}/>
 
                 <CommentsCreate 
                     username={username}

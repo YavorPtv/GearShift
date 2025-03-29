@@ -9,6 +9,11 @@ function commentsReducer(state, action) {
             return [...state, action.payload];
         case 'GET_ALL':
             return action.payload;
+        case 'EDIT_COMMENT':
+            return state.map((comment) => 
+                comment._id === action.payload._id 
+                    ? {...comment, ...action.payload} 
+                    : comment)
         default:
             return state;
     }
@@ -31,6 +36,7 @@ export const useComments = (carId) => {
     return {
         comments,
         addComment: (commentData) => dispatch({type: 'ADD_COMMENT', payload: commentData}),
+        editComment: (commentData) => dispatch({type: 'EDIT_COMMENT', payload: commentData})
     }
 }
 
@@ -42,5 +48,16 @@ export const useCreateComment = () => {
 
     return {
         create,
+    }
+}
+
+export const useEditComment = () => {
+    const { request } = useAuth();
+
+    const edit = (commentId, comment) => 
+        request.patch(`${baseUrl}/${commentId}`, comment);
+
+    return {
+        edit,
     }
 }
