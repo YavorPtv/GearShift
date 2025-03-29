@@ -52,8 +52,8 @@ export default function CommentsView({
                                     <div className="comment-actions">
                                         <button 
                                             className="comment-edit-button"
-                                            onClick={
-                                                editingId ===  _id 
+                                            onClick= {
+                                                editingId === _id 
                                                 ? () => handleCancelEdit()
                                                 : () => handleEditClick(_id, comment)
                                             }
