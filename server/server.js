@@ -1343,8 +1343,8 @@
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             },
             "298fab15-a135-4c20-9a2a-d782820a1865": {
-                email: "test@test",
-                username: "test",
+                email: "admin@admin",
+                username: "admin",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
