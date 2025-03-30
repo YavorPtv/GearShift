@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router";
+
 import { useLogin } from "../../api/authApi";
 import { useUserContext } from "../../contexts/UserContext";
+import { toast } from "react-toastify";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -10,11 +12,16 @@ export default function Login() {
     const loginHandler = async (formData) => {
         const {email, password} = Object.fromEntries(formData);
 
-        const authData = await login(email, password);
+        try{
+            const authData = await login(email, password);
+            userLoginHandler(authData);
 
-        userLoginHandler(authData);
+            toast.success('Successfully logged in!');
 
-        navigate('/');
+            navigate(-1);
+        } catch (err) {
+            toast.error(err.message);
+        }
     }
 
     return (

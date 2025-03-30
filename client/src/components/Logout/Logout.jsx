@@ -1,9 +1,34 @@
-import { Navigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { useLogout } from "../../api/authApi";
+import { useContext, useEffect, useRef } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { toast } from "react-toastify";
 
 export default function Logout() {
-    const { isLoggedIn } = useLogout();
-    return isLoggedIn
-        ? null // spinner is better
-        : <Navigate to="/" />
+    const navigate = useNavigate();
+    const { userLogoutHandler } = useContext(UserContext);
+    const { logout, isAuthenticated } = useLogout();
+    const hasLoggedOut = useRef(false);
+
+    useEffect(() => {
+        (async () => {
+            if (hasLoggedOut.current) return; 
+            hasLoggedOut.current = true;
+            try {
+                await logout();
+                userLogoutHandler();
+                navigate(-1);
+                toast.success('Successfully logged out!');
+            } catch (err) {
+                toast.error(err.message);
+            }
+        })()
+    }, [logout, userLogoutHandler, navigate])
+
+    return (
+        <>
+            {isAuthenticated && null //TODO: spinner 
+            }
+        </>
+    )
 }

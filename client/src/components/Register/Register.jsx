@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+
 import { useRegister } from "../../api/authApi";
 import { useUserContext } from "../../contexts/UserContext";
-import request from "../../utils/request";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -11,15 +12,21 @@ export default function Register() {
     const registerHandler = async (formData) => {
         const { username, email, password, confirmPassword } = Object.fromEntries(formData);
 
-        if (password !== confirmPassword){
-            console.log('Password missmatch');
+        try {
+            if (password !== confirmPassword){
+                throw new Error('Password missmatch!');
+            }
+            const authData = await register(username, email, password);
+
+            toast.success('Successfully registered!');
+
+            navigate(-1);
+            userLoginHandler(authData);
+        } catch (err) {
+            toast.error(err.message);
         }
 
-        const authData = await register(username, email, password);
 
-        userLoginHandler(authData);
-
-        navigate('/');
     }
     return (
         <div className="register-form-container">

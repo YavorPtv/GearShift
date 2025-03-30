@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CarEdit from './components/Car-Edit/CarEdit';
 import AuthGuard from './components/guards/AuthGuard';
 import GuestGuard from './components/guards/GuestGuard';
+import { ToastContainer } from 'react-toastify'
 
 export default function App() {
 
@@ -37,6 +38,7 @@ export default function App() {
                         <Route path='/login' element={<Login />} />
                     </Route>
                 </Routes>
+            <ToastContainer />
             <Footer />
         </UserProvider>
 

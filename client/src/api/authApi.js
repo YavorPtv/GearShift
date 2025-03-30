@@ -1,6 +1,6 @@
-import { useContext, useEffect, useRef } from "react";
 import request from "../utils/request";
 import { UserContext } from "../contexts/UserContext";
+import useAuth from "../hooks/useAuth";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -35,24 +35,12 @@ export const useRegister = () => {
 };
 
 export const useLogout = () => {
-    const { accessToken, userLogoutHandler } = useContext(UserContext);
+    const { request, isAuthenticated } = useAuth();
 
-    useEffect(() => {
-        if (!accessToken){
-            return; 
-        }
-        const options = {
-            headers: {
-                'X-Authorization': accessToken
-            }
-        }
+    const logout = async () => request.get(`${baseUrl}/logout`);
     
-        request.get(`${baseUrl}/logout`, null, options)
-            .then(userLogoutHandler);
-    
-    }, [accessToken, userLogoutHandler])
-
     return {
-        isLoggedIn: !!accessToken
+        logout,
+        isAuthenticated
     };
 };

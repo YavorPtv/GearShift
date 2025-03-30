@@ -27,6 +27,7 @@ export default function CommentsCreate({
                         name="comment"
                         placeholder="Write your comment here..."
                         rows="3"
+                        required
                     ></textarea>
                     <button className="add-comment-button">Add Comment</button>
                 </form>

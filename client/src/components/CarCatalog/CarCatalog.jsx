@@ -1,7 +1,5 @@
-import { Link } from "react-router";
 import { useCars } from "../../api/carApi";
 import CarCatalogItem from "./CarCatalogItem/CarCatalogItem";
-import Search from "../Search/Search";
 
 export default function Catalog() {
     const { cars } = useCars();
