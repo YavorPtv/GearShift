@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { useUserContext } from "../../contexts/UserContext";
 
 export default function Navigation() {
@@ -35,10 +35,10 @@ export default function Navigation() {
                             >
                                 <i className="fa fa-bars" />
                             </button>
-                            <a className="navbar-brand" href="/">
+                            <Link className="navbar-brand" to="/">
                                 gearshift
                                 <span />
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
