@@ -66,22 +66,6 @@ vi.mock("react-router", () => ({
 describe("CarDetails Component", () => {
 
     it("renders car details correctly", () => {
-        const mockCar = {
-            _id: "1",
-            imageUrl: "car1.jpg",
-            brand: "Toyota",
-            model: "Corolla",
-            year: 2022,
-            price: 20000,
-            description: "A reliable car",
-            _ownerId: "user1",
-            horsePower: 130,
-            type: "Sedan",
-            transmission: "Automatic",
-            time0to100: 8.5
-        };
-
-        useCar.mockReturnValue({ car: mockCar });
         useCarDelete.mockReturnValue({ deleteCar: vi.fn() });
         useAuth.mockReturnValue({ userId: "user1", username: "testuser", isAuthenticated: true });
         useComments.mockReturnValue({ comments: [], addComment: vi.fn(), editComment: vi.fn(), deleteComment: vi.fn() });

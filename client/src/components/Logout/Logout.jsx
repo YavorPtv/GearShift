@@ -1,12 +1,12 @@
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useLogout } from "../../api/authApi";
-import { useContext, useEffect, useRef } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { useEffect, useRef } from "react";
+import { useUserContext } from "../../contexts/UserContext";
 import { toast } from "react-toastify";
 
 export default function Logout() {
     const navigate = useNavigate();
-    const { userLogoutHandler } = useContext(UserContext);
+    const { userLogoutHandler } = useUserContext();
     const { logout, isAuthenticated } = useLogout();
     const hasLoggedOut = useRef(false);
 

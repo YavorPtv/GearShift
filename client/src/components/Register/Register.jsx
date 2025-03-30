@@ -45,7 +45,7 @@ export default function Register() {
                     <input type="password" id="password" name="password" placeholder="Enter your password" required />
                 </div>
                 <div className="register-form-group">
-                    <label htmlFor="confirmPassword">Password:</label>
+                    <label htmlFor="confirmPassword">Repeat Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required />
                 </div>
                 <button type="submit">Register</button>
