@@ -23,7 +23,7 @@ export const useCar = (carId) => {
     useEffect(() => {
         request.get(`${baseUrl}/${carId}`)
             .then(setCar);
-    }, []);
+    }, [carId]);
 
     return {
         car,
