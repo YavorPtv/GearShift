@@ -9,7 +9,7 @@ export default function Spinner() {
     };
     return (
         <div style={spinnerStyle}>
-            <BounceLoader color="#4e4ffa" size={100} />
+            <BounceLoader data-testid="spinner" color="#4e4ffa" size={100} />
         </div>
     );
 }

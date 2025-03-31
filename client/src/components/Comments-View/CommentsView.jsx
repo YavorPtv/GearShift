@@ -44,8 +44,8 @@ export default function CommentsView({
 
             <div className="comments-container">
                 {comments.length > 0
-                    ? comments.map(({ _id, comment, author, _ownerId }) => (
-                        <div key={_id} className="comment">
+                    ? comments.map(({ _id, comment, author, _ownerId, pending }) => (
+                        <div key={_id} className={`comment ${pending ? "pending-comment" : ""}`}>
                             <div className="comment-header">
                                 <div className="username">{author.username}</div>
                                 {_ownerId === userId && (

@@ -300,3 +300,8 @@
 .cancel-button:hover {
     background-color: #d93d3d;
 }
+
+.pending-comment {
+    opacity: 0.5;
+    font-style: italic;
+}

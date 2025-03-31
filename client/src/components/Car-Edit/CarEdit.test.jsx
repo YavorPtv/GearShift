@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import CarEdit from "./CarEdit";
 import { useCar, useCarEdit } from "../../api/carApi";
-import { MemoryRouter } from "react-router";
 
 const mockCar = {
     _id: "1",
@@ -113,6 +112,6 @@ describe("CarEdit Component", () => {
 
         render(<CarEdit />);
 
-        expect(screen.getByText(/loading/i)).toBeInTheDocument();
+        expect(screen.getByTestId("spinner")).toBeInTheDocument();
     });
 });

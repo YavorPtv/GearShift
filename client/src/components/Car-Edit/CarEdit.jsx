@@ -1,9 +1,10 @@
 import { useNavigate, useParams } from "react-router";
 import { useCar, useCarEdit } from "../../api/carApi";
 import { useState, useEffect } from "react";
+import Spinner from "../Spinner/Spinner";
 
 export default function CarEdit() {
-    const { edit } = useCarEdit();
+    const { edit, isLoading } = useCarEdit();
     const { carId } = useParams();
     const navigate = useNavigate();
     const { car } = useCar(carId);
@@ -19,7 +20,7 @@ export default function CarEdit() {
     }, [car]);
 
     if (!car || !formData) {
-        return <h2>Loading...</h2>; // Show a spinner or loading indicator
+        return <Spinner />;
     }
 
     const handleChange = (e) => {
@@ -186,8 +187,8 @@ export default function CarEdit() {
                     />
                 </div>
 
-                <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4e4ffa', color: '#fff', border: 'none', cursor: 'pointer' }}>
-                    Submit
+                <button type="submit" disabled={isLoading} style={{ padding: '10px 20px', backgroundColor: '#4e4ffa', color: '#fff', border: 'none', cursor: 'pointer' }}>
+                    {isLoading ? "Saving Changes..." : "Submit"}
                 </button>
             </form>
         </div>

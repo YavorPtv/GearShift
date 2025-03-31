@@ -3,8 +3,8 @@ import { useCarCreate } from "../../api/carApi";
 
 export default function CarCreate() {
     const navigate = useNavigate();
-    const { create } = useCarCreate();
-    
+    const { create, isLoading } = useCarCreate();
+
     const onCreate = async (formData) => {
         const carData = Object.fromEntries(formData);
 
@@ -168,8 +168,8 @@ export default function CarCreate() {
                     />
                 </div>
 
-                <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4e4ffa', color: '#fff', border: 'none', cursor: 'pointer' }}>
-                    Submit
+                <button type="submit" disabled={isLoading} style={{ padding: '10px 20px', backgroundColor: '#4e4ffa', color: '#fff', border: 'none', cursor: 'pointer' }}>
+                    {isLoading ? "Creating Post..." : "Submit"}
                 </button>
             </form>
         </div>

@@ -1,4 +1,6 @@
+import { useOptimistic } from "react";
 import { Link, useNavigate, useParams } from "react-router";
+import { useCreateComment } from "../../api/commentsApi";
 import { useCar, useCarDelete } from "../../api/carApi";
 import useAuth from "../../hooks/useAuth";
 import CommentsView from "../Comments-View/CommentsView";
@@ -9,10 +11,12 @@ import Spinner from "../Spinner/Spinner";
 export default function CarDetails() {
     const navigate = useNavigate();
     const { carId } = useParams();
-    const { car, isLoading } = useCar(carId);
-    const { deleteCar } = useCarDelete();
+    const { car, isLoading: isLoadingCar } = useCar(carId);
+    const { deleteCar, isLoading: isLoadingDeleteCar } = useCarDelete();
     const { userId, username } = useAuth();
-    const { comments, addComment, editComment, deleteComment } = useComments(carId);
+    const { comments, addComment, editComment, deleteComment, isLoading: isLoadingComments } = useComments(carId);
+    const [optimisticComments, setOptimisticComments] = useOptimistic(comments, (state, newComment) => [...state, newComment]);
+    const { create } = useCreateComment();
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
@@ -26,8 +30,27 @@ export default function CarDetails() {
         navigate('/cars');
     }
 
+    const onCreate = async (formData) => {
+        const commentText = formData.get('comment');
+
+        const tempComment = {
+            _id: `temp-${Date.now()}`,
+            comment: commentText,
+            author: { username },
+            pending: true,
+        }
+
+        setOptimisticComments(tempComment);
+
+        try {
+            const createdComment = await create(carId, commentText);
+            addComment({ ...createdComment, author: { username } });
+        } catch (error) {
+            console.error("Failed to create comment:", error);
+        }
+    }
     const isOwner = userId === car._ownerId;
-    if (isLoading) {
+    if (isLoadingCar) {
         return (
             <Spinner />
         );
@@ -59,7 +82,9 @@ export default function CarDetails() {
                     {isOwner && (
                         <div className="button-group">
                             <Link to={`/cars/${carId}/edit`} className="edit-button">Edit</Link>
-                            <button onClick={carDeleteHandler} className="delete-button">Delete</button>
+                            <button onClick={carDeleteHandler} className="delete-button">
+                                {isLoadingDeleteCar ? "Deleting car..." : "Delete"}
+                            </button>
                         </div>
                     )}
 
@@ -73,19 +98,24 @@ export default function CarDetails() {
                 </p>
             </div>
             <div className="comments-section">
+                {isLoadingComments ? (
+                    <Spinner />
+                ) : (
+                    <>
+                        <CommentsView
+                            comments={optimisticComments}
+                            editComment={editComment}
+                            deleteComment={deleteComment}
+                        />
 
-                <CommentsView 
-                    comments={comments}
-                    editComment={editComment}
-                    deleteComment={deleteComment}
-                />
-
-                <CommentsCreate 
-                    addComment={addComment}
-                    username={username}
-                    carId={carId}
-                />
-
+                        <CommentsCreate
+                            addComment={addComment}
+                            onCreate={onCreate}
+                            username={username}
+                            carId={carId}
+                        />
+                    </>
+                )}
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useOptimistic, useState } from "react";
 import useAuth from "../hooks/useAuth"
 import request from "../utils/request";
 
@@ -38,36 +38,60 @@ export const useCar = (carId) => {
     };
 }
 
+
 export const useCarCreate = () => {
     const { request } = useAuth();
+    const [isLoading, setIsLoading] = useOptimistic(false);
 
-    const create = (carData) => 
-        request.post(baseUrl, carData);
-    
+    const create = async (carData) => {
+        setIsLoading(true);
+        try {
+            return await request.post(baseUrl, carData);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return {
         create,
-    }
-}
+        isLoading,
+    };
+};
 
 export const useCarEdit = () => {
     const { request } = useAuth();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const edit = (carId, carData) => 
-        request.put(`${baseUrl}/${carId}`, {...carData, _id: carId});
+    const edit = async (carId, carData) => {
+        setIsLoading(true);
+        try {
+            return await request.put(`${baseUrl}/${carId}`, { ...carData, _id: carId });
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return {
         edit,
-    }
-}
+        isLoading,
+    };
+};
 
 export const useCarDelete = () => {
     const { request } = useAuth();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const deleteCar = (carId) => 
-        request.delete(`${baseUrl}/${carId}`);
+    const deleteCar = async (carId) => {
+        setIsLoading(true);
+        try {
+            return await request.delete(`${baseUrl}/${carId}`);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return {
         deleteCar,
-    }
-}
+        isLoading,
+    };
+};
