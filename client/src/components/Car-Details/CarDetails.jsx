@@ -4,11 +4,12 @@ import useAuth from "../../hooks/useAuth";
 import CommentsView from "../Comments-View/CommentsView";
 import CommentsCreate from "../Comments-Create/CommentsCreate";
 import { useComments } from "../../api/commentsApi";
+import Spinner from "../Spinner/Spinner";
 
 export default function CarDetails() {
     const navigate = useNavigate();
     const { carId } = useParams();
-    const { car } = useCar(carId);
+    const { car, isLoading } = useCar(carId);
     const { deleteCar } = useCarDelete();
     const { userId, username } = useAuth();
     const { comments, addComment, editComment, deleteComment } = useComments(carId);
@@ -26,7 +27,11 @@ export default function CarDetails() {
     }
 
     const isOwner = userId === car._ownerId;
-
+    if (isLoading) {
+        return (
+            <Spinner />
+        );
+    }
     return (
         <div className="car-details">
             <div className="top-section">
