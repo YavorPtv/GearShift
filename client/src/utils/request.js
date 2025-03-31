@@ -22,11 +22,10 @@ const request = async (method, url, data, options = {}) => {
     }
 
     if (!response.ok) {
-        const result = await response.json();
-
-        throw result;
+        throw await response.json();
     }
-    
+    if (response.status == 204) return;
+
     const result = await response.json();
     
     return result;

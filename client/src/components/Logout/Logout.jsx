@@ -16,11 +16,13 @@ export default function Logout() {
             hasLoggedOut.current = true;
             try {
                 await logout();
-                userLogoutHandler();
                 navigate(-1);
                 toast.success('Successfully logged out!');
             } catch (err) {
                 toast.error(err.message);
+            }
+            finally {
+                userLogoutHandler();
             }
         })()
     }, [logout, userLogoutHandler, navigate])
