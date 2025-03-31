@@ -7,7 +7,6 @@ export default function Navigation() {
     const navItems = [
         { name: 'Home', to: '/' },
         { name: 'Catalog', to: '/cars' },
-        { name: 'Contacts', to: '/contacts' },
     ];
 
     const authItems = [

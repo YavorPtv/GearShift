@@ -32,10 +32,10 @@ export const useLogin = () => {
 
 export const useRegister = () => {
     const [isLoading, setIsLoading] = useOptimistic(false);
-    const register = async (username, email, password) =>{
+    const register = async (username, email, password, profilePicture) =>{
         setIsLoading(true);
         try {
-            return await request.post(`${baseUrl}/register`, { username, email, password });
+            return await request.post(`${baseUrl}/register`, { username, email, password, profilePicture });
         } finally {
             setIsLoading(false);
         }

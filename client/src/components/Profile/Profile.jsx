@@ -14,13 +14,13 @@ export default function Profile() {
     if (isLoadingProfile || isLoadingCars || isLoadingComments) {
         return <Spinner />;
     }
-
+    console.log(profile);
     return (
         <div className="profile-page">
             {/* Profile Header */}
             <div className="profile-header">
                 <div className="profile-picture">
-                    <img src={profile.imageUrl || defaultProfilePicture} alt="Profile" />
+                    <img src={profile.profilePicture || defaultProfilePicture} alt="Profile" />
                 </div>
                 <div className="profile-info">
                     <h2>{profile.username}</h2>

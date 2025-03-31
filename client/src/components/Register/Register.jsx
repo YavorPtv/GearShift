@@ -10,13 +10,13 @@ export default function Register() {
     const { userLoginHandler } = useUserContext();
 
     const registerHandler = async (formData) => {
-        const { username, email, password, confirmPassword } = Object.fromEntries(formData);
+        const { username, email, password, confirmPassword, profilePicture } = Object.fromEntries(formData);
 
         try {
             if (password !== confirmPassword){
                 throw new Error('Password missmatch!');
             }
-            const authData = await register(username, email, password);
+            const authData = await register(username, email, password, profilePicture);
 
             toast.success('Successfully registered!');
 
@@ -47,6 +47,10 @@ export default function Register() {
                 <div className="register-form-group">
                     <label htmlFor="confirmPassword">Repeat Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required />
+                </div>
+                <div className="register-form-group">
+                    <label htmlFor="profilePicture">Profile Picture (Optional):</label>
+                    <input type="text" id="profilePicture" name="profilePicture" placeholder="Enter your profile picture" />
                 </div>
                 <button type="submit" disabled={isLoading}>
                     {isLoading ? "Registering..." : "Register"}
