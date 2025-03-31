@@ -15,6 +15,7 @@ import CarEdit from './components/Car-Edit/CarEdit';
 import AuthGuard from './components/guards/AuthGuard';
 import GuestGuard from './components/guards/GuestGuard';
 import { ToastContainer } from 'react-toastify'
+import Profile from './components/Profile/Profile';
 
 export default function App() {
 
@@ -31,6 +32,7 @@ export default function App() {
                         <Route path='/cars/create' element={<CarCreate />} />
                         <Route path='/cars/:carId/edit' element={<CarEdit />} />
                         <Route path='/logout' element={<Logout />} />
+                        <Route path='/profile' element={<Profile />} />
                     </Route>
 
                     <Route element={<GuestGuard />}>

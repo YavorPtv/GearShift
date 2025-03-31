@@ -59,7 +59,8 @@ export const useProfileComments = (userId) => {
         setIsLoading(true);
 
         const searchParams = new URLSearchParams({
-            where: `_ownerId="${userId}"`
+            where: `_ownerId="${userId}"`,
+            load: `author=_ownerId:users`
         })
         request.get(`${baseUrl}/data/comments?${searchParams.toString()}`)
             .then(setProfileComments)
