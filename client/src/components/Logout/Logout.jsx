@@ -3,6 +3,7 @@ import { useLogout } from "../../api/authApi";
 import { useEffect, useRef } from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import { toast } from "react-toastify";
+import Spinner from "../Spinner/Spinner";
 
 export default function Logout() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function Logout() {
 
     return (
         <>
-            {isAuthenticated && null //TODO: spinner 
+            {isAuthenticated && <Spinner /> //TODO: spinner 
             }
         </>
     )

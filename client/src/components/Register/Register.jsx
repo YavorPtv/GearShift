@@ -6,7 +6,7 @@ import { useUserContext } from "../../contexts/UserContext";
 
 export default function Register() {
     const navigate = useNavigate();
-    const { register } = useRegister();
+    const { register, isLoading } = useRegister();
     const { userLoginHandler } = useUserContext();
 
     const registerHandler = async (formData) => {
@@ -48,7 +48,9 @@ export default function Register() {
                     <label htmlFor="confirmPassword">Repeat Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required />
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? "Registering..." : "Register"}
+                </button>
             </form>
         </div>
     );

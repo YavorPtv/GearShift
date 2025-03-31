@@ -6,13 +6,13 @@ import { toast } from "react-toastify";
 
 export default function Login() {
     const navigate = useNavigate();
-    const { login } = useLogin();
+    const { login, isLoading } = useLogin();
     const { userLoginHandler } = useUserContext();
 
     const loginHandler = async (formData) => {
-        const {email, password} = Object.fromEntries(formData);
+        const { email, password } = Object.fromEntries(formData);
 
-        try{
+        try {
             const authData = await login(email, password);
             userLoginHandler(authData);
 
@@ -36,7 +36,9 @@ export default function Login() {
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" required />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? "Logging in..." : "Login"}
+                </button>
             </form>
         </div>
     );
