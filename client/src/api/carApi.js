@@ -21,13 +21,42 @@ export const useCars = () => {
     };
 }
 
-export const useCarsFilter = () => {
+export const useCarsSortAndFilter = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const filterCars = async (filters) => {
+
+    const sortAndFilterCars = async (sortCriteria = {}, filters = {}) => {
         setIsLoading(true);
+
+        // URL-encode the sortCriteria and prepare the query string
+        let sortBy;
+        switch (sortCriteria) {
+            case 'newest':
+                sortBy = '_createdOn desc'
+                break;
+            case 'abc-asc':
+                sortBy = 'brand'
+                break;
+            case 'zyx-desc':
+                sortBy = 'brand desc'
+                break;
+            case 'price-desc':
+                sortBy = 'price desc'
+                break;
+            case 'price-asc':
+                sortBy = 'price'
+                break;
+
+            default:
+                break;
+        }
+
+        const params = new URLSearchParams();
+        if (sortBy) {
+            params.append("sortBy", sortBy);
+        }
         const conditions = Object.entries(filters)
             // eslint-disable-next-line no-unused-vars
-            .filter(([_, value]) => value) 
+            .filter(([_, value]) => value)
             .map(([key, value]) => {
                 if (key === 'price') {
                     return `price <= ${value}`
@@ -35,10 +64,9 @@ export const useCarsFilter = () => {
                     return `${key} LIKE "${value}"`;
                 }
             })
-            .join(" AND "); 
+            .join(" AND ");
 
-        const params = new URLSearchParams();
-        
+
         if (conditions) {
             params.append("where", conditions);
         }
@@ -46,18 +74,19 @@ export const useCarsFilter = () => {
         try {
             const result = await request.get(`${baseUrl}?${params.toString()}`);
             setIsLoading(false);
-            return result;
+            return result; // Return the sorted data
         } catch (error) {
-            console.error("Error fetching filtered cars:", error);
+            console.error("Error fetching sorted cars:", error);
+            setIsLoading(false);
             return [];
         }
-    }
+    };
 
     return {
-        filterCars,
+        sortAndFilterCars,
         isLoading
-    }
-};
+    };
+}
 
 export const useCar = (carId) => {
     const [car, setCar] = useState([]);

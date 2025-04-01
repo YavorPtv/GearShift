@@ -369,7 +369,7 @@ body {
 .model-search-content {
     padding: 40px 0;
     background: #fff;
-    box-shadow:0 10px 40px 0px rgba(38,40,64,.2);
+    box-shadow:0 0px 20px 0px rgba(38,40,64,.2);
     position: absolute;
     bottom: -150px;
     width: 100%;

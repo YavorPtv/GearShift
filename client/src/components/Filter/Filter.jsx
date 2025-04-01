@@ -1,17 +1,11 @@
 import { useState } from "react";
-import "./Search.css";
+import "./Filter.css";
 
-export default function Search({
-    onSearch
+export default function Filter({
+    onFilter,
+    prevFilters
 }) {
-    const [filters, setFilters] = useState({
-        year: "",
-        color: "",
-        brand: "",
-        transmission: "",
-        model: "",
-        price: ""
-    });
+    const [filters, setFilters] = useState(prevFilters);
 
     const handleChange = (e) => {
         setFilters((prev) => ({
@@ -20,7 +14,7 @@ export default function Search({
         }));
     };
     const submitAction = async (formData) => {
-        onSearch(Object.fromEntries(formData)); 
+        onFilter(Object.fromEntries(formData)); 
     };
     return (
         <div className="container">
@@ -75,7 +69,7 @@ export default function Search({
 
                             <div className="col-md-2 col-sm-12">
                                 <div className="single-model-search text-center">
-                                    <button className="welcome-btn model-search-btn">Search</button>
+                                    <button className="welcome-btn model-search-btn">Filter</button>
                                 </div>
                             </div>
                         </form>

@@ -1,0 +1,55 @@
+.sort-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sort-input {
+    padding: 22px;
+    font-size: 1.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 275px;
+}
+
+.sort-button {
+    padding: 20px 36px;
+    display: inline-block;
+    /* Makes Link behave like a button */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #4e4ffa, #6a82fb);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    /* Remove default link underline */
+    margin: 40px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.sort-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+}
+
+.sort-button:hover {
+    color: white;  /* Keep text white */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(78, 79, 250, 0.3);
+}
+.sort-button:hover:before {
+    transform: translate(-50%, -50%) scale(1);
+}
