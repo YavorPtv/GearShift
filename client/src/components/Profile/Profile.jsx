@@ -14,7 +14,7 @@ export default function Profile() {
     if (isLoadingProfile || isLoadingCars || isLoadingComments) {
         return <Spinner />;
     }
-    console.log(profile);
+    
     return (
         <div className="profile-page">
             {/* Profile Header */}

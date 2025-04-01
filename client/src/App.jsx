@@ -23,23 +23,23 @@ export default function App() {
         <UserProvider>
             <ScrollToTop />
             <Navigation />
-                <Routes>
-                    <Route index element={<Home />}/>
-                    <Route path='/cars' element={<CarCatalog />} />
-                    <Route path='/cars/:carId/details' element={<CarDetails />} />
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path='/cars' element={<CarCatalog />} />
+                <Route path='/cars/:carId/details' element={<CarDetails />} />
 
-                    <Route element={<AuthGuard />}>
-                        <Route path='/cars/create' element={<CarCreate />} />
-                        <Route path='/cars/:carId/edit' element={<CarEdit />} />
-                        <Route path='/logout' element={<Logout />} />
-                        <Route path='/profile' element={<Profile />} />
-                    </Route>
+                <Route element={<AuthGuard />}>
+                    <Route path='/cars/create' element={<CarCreate />} />
+                    <Route path='/cars/:carId/edit' element={<CarEdit />} />
+                    <Route path='/logout' element={<Logout />} />
+                    <Route path='/profile' element={<Profile />} />
+                </Route>
 
-                    <Route element={<GuestGuard />}>
-                        <Route path='/register' element={<Register />} />
-                        <Route path='/login' element={<Login />} />
-                    </Route>
-                </Routes>
+                <Route element={<GuestGuard />}>
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/login' element={<Login />} />
+                </Route>
+            </Routes>
             <ToastContainer />
             <Footer />
         </UserProvider>

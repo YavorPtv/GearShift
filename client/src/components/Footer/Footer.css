@@ -1,0 +1,94 @@
+/* Footer Container */
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Footer Content */
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+/* Footer Column */
+.footer-column {
+    flex: 1;
+    min-width: 200px; /* Ensures they don't shrink too much */
+    max-width: 300px; /* Prevents columns from being too wide */
+    margin-bottom: 20px;
+}
+
+/* Footer Logo */
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4e4ffa;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 8px 0;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: grid;
+}
+
+.footer-links a:hover {
+    color: #4e4ffa;
+}
+
+/* Social Media Icons */
+.footer-social {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social a {
+    color: #bbb;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #4e4ffa;
+}
+
+/* Copyright */
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+}
