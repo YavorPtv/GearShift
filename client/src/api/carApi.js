@@ -21,6 +21,44 @@ export const useCars = () => {
     };
 }
 
+export const useCarsFilter = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const filterCars = async (filters) => {
+        setIsLoading(true);
+        const conditions = Object.entries(filters)
+            // eslint-disable-next-line no-unused-vars
+            .filter(([_, value]) => value) 
+            .map(([key, value]) => {
+                if (key === 'price') {
+                    return `price <= ${value}`
+                } else {
+                    return `${key} LIKE "${value}"`;
+                }
+            })
+            .join(" AND "); 
+
+        const params = new URLSearchParams();
+        
+        if (conditions) {
+            params.append("where", conditions);
+        }
+
+        try {
+            const result = await request.get(`${baseUrl}?${params.toString()}`);
+            setIsLoading(false);
+            return result;
+        } catch (error) {
+            console.error("Error fetching filtered cars:", error);
+            return [];
+        }
+    }
+
+    return {
+        filterCars,
+        isLoading
+    }
+};
+
 export const useCar = (carId) => {
     const [car, setCar] = useState([]);
     const [isLoading, setIsLoading] = useState(true);

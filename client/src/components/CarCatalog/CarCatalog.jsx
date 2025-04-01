@@ -1,16 +1,29 @@
-import { useCars } from "../../api/carApi";
+import { useCars, useCarsFilter } from "../../api/carApi";
 import { FaFilter } from "react-icons/fa";
 import Spinner from "../Spinner/Spinner";
 import CarCatalogItem from "./CarCatalogItem/CarCatalogItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../Search/Search";
 
 export default function Catalog() {
     const { cars, isLoading } = useCars();
+    const [displayCars, setDisplayCars] = useState([]);  
     const [showSearch, setShowSearch] = useState(false);
+    const { filterCars, isLoading: isLoadingFilterCars } = useCarsFilter();
+
+    useEffect(() => {
+        if (!isLoading) {
+            setDisplayCars(cars);
+        }
+    }, [cars, isLoading]) 
 
     const handleFilterClick = () => {
         setShowSearch((state) => !state);
+    };
+
+    const handleSearch = async (filters) => {
+        const filteredCars = await filterCars(filters); 
+        setDisplayCars(filteredCars); 
     };
 
     return (
@@ -29,14 +42,14 @@ export default function Catalog() {
                         <FaFilter />
                     </div>
 
-                    {showSearch && <Search />}
+                    {showSearch && <Search onSearch={handleSearch} />}
 
-                    {isLoading ? (
+                    {isLoading || isLoadingFilterCars ? (
                         <Spinner />
                     ) : (
                         <div className="car-catalog-container">
-                            {cars.length > 0
-                                ? cars.map(car => (
+                            {displayCars.length > 0
+                                ? displayCars.map(car => (
                                     <CarCatalogItem
                                         key={car._id}
                                         {...car}

@@ -1,67 +1,84 @@
+import { useState } from "react";
 import "./Search.css";
 
-export default function Search() {
+export default function Search({
+    onSearch
+}) {
+    const [filters, setFilters] = useState({
+        year: "",
+        color: "",
+        brand: "",
+        transmission: "",
+        model: "",
+        price: ""
+    });
+
+    const handleChange = (e) => {
+        setFilters((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    };
+    const submitAction = async (formData) => {
+        onSearch(Object.fromEntries(formData)); 
+    };
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
                     <div className="model-search-content">
-                        <div className="row">
-                            {/* Year & Type */}
+                        <form action={submitAction} className="row">
                             <div className="col-md-offset-1 col-md-2 col-sm-12">
                                 <div className="single-model-search">
                                     <h2>Year</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. 2023" />
+                                        <input className="form-control" placeholder="e.g. 2023" name="year" value={filters.year} onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div className="single-model-search">
                                     <h2>Color</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. Red" />
+                                        <input className="form-control" placeholder="e.g. Red" name="color" value={filters.color} onChange={handleChange} />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Brand & Transmission */}
                             <div className="col-md-offset-1 col-md-2 col-sm-12">
                                 <div className="single-model-search">
                                     <h2>Brand</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. Ferrari" />
+                                        <input className="form-control" placeholder="e.g. Ferrari" name="brand" value={filters.brand} onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div className="single-model-search">
                                     <h2>Transmission</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. Automatic" />
+                                        <input className="form-control" placeholder="e.g. Automatic" name="transmission" value={filters.transmission} onChange={handleChange} />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Model & Price */}
                             <div className="col-md-offset-1 col-md-2 col-sm-12">
                                 <div className="single-model-search">
                                     <h2>Model</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. SF90 Stradale" />
+                                        <input className="form-control" placeholder="e.g. SF90 Stradale" name="model" value={filters.model} onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div className="single-model-search">
                                     <h2>Max Price ($)</h2>
                                     <div className="model-select-icon">
-                                        <input className="form-control" placeholder="e.g. 500000" />
+                                        <input className="form-control" placeholder="e.g. 500000" name="price" value={filters.price} onChange={handleChange} />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Color */}
                             <div className="col-md-2 col-sm-12">
                                 <div className="single-model-search text-center">
                                     <button className="welcome-btn model-search-btn">Search</button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
