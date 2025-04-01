@@ -10,7 +10,7 @@ export default function Catalog() {
     const [showSearch, setShowSearch] = useState(false);
 
     const handleFilterClick = () => {
-        setShowSearch((state) => !state); // Toggle the search component
+        setShowSearch((state) => !state);
     };
 
     return (

@@ -404,7 +404,6 @@ body {
 }
 .model-select-icon:after{
     position: absolute;
-    content: "\f103";
     right: 0px;
     top: 0;
     font-size: 10px;
