@@ -30,7 +30,7 @@ export default function Logout() {
 
     return (
         <>
-            {isAuthenticated && <Spinner /> //TODO: spinner 
+            {isAuthenticated && <Spinner /> 
             }
         </>
     )

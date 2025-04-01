@@ -85,7 +85,7 @@ export default function CarCreate() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="description">Quick Description (approx. 15 words):</label>
+                    <label htmlFor="description">Quick Description:</label>
                     <textarea
                         id="description"
                         name="description"

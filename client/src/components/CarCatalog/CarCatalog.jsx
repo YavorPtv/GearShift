@@ -7,7 +7,7 @@ import Search from "../Search/Search";
 
 export default function Catalog() {
     const { cars, isLoading } = useCars();
-    const [displayCars, setDisplayCars] = useState([]);  
+    const [displayCars, setDisplayCars] = useState([]);
     const [showSearch, setShowSearch] = useState(false);
     const { filterCars, isLoading: isLoadingFilterCars } = useCarsFilter();
 
@@ -15,15 +15,15 @@ export default function Catalog() {
         if (!isLoading) {
             setDisplayCars(cars);
         }
-    }, [cars, isLoading]) 
+    }, [cars, isLoading])
 
     const handleFilterClick = () => {
         setShowSearch((state) => !state);
     };
 
     const handleSearch = async (filters) => {
-        const filteredCars = await filterCars(filters); 
-        setDisplayCars(filteredCars); 
+        const filteredCars = await filterCars(filters);
+        setDisplayCars(filteredCars);
     };
 
     return (
@@ -34,13 +34,11 @@ export default function Catalog() {
                         <h2>Featured Cars</h2>
                     </div>
 
-                    <div
-                        className="filter-icon"
+                    <FaFilter className="filter-icon"
                         onClick={handleFilterClick}
-                        style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem" }}
-                    >
-                        <FaFilter />
-                    </div>
+                        style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem" }} 
+                    />
+
 
                     {showSearch && <Search onSearch={handleSearch} />}
 

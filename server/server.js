@@ -1327,24 +1327,10 @@
     var identity = "email";
     var protectedData = {
         users: {
-            "35c62d76-8152-4626-8712-eeb96381bea8": {
-                email: "peter@abv.bg",
-                username: "Peter",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "847ec027-f659-4086-8032-5173e2f9c93a": {
-                email: "george@abv.bg",
-                username: "George",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+            "298fab15-a135-4c20-9a2a-d782820a1865": {
                 email: "admin@abv.bg",
                 username: "Admin",
-                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-            },
-            "298fab15-a135-4c20-9a2a-d782820a1865": {
-                email: "admin@admin",
-                username: "admin",
+                profilePicture: 'https://cdn-icons-png.flaticon.com/512/9703/9703596.png',
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
@@ -1406,13 +1392,6 @@
             }
         },
         comments: {
-            "0a272c58-b7ea-4e09-a000-7ec988248f66": {
-                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                content: "Great recipe!",
-                recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-                _createdOn: 1614260681375,
-                _id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
-            }
         },
         records: {
             i01: {
@@ -1816,6 +1795,102 @@
                 "_createdOn": 1742744515868,
                 "_id": "i2d3e5f7-78c6-4fd9-bbc0-e3a9c7d5f8a2",
                 "imageUrl": "https://electrek.co/wp-content/uploads/sites/3/2021/05/Tesla-Guide-Gen.-2-Roadster-Hero.jpg?quality=82&strip=all&w=1600"
+            },
+            "j1e2c3d4-9d5e-47e5-8b97-8bdf5ff2714e": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "Aston Martin",
+                "model": "DBS Superleggera",
+                "horsePower": "715",
+                "transmission": "automatic",
+                "price": "315000",
+                "description": "Elegant sports car with a V12 engine.",
+                "time0to100": "3.4",
+                "year": "2022",
+                "color": "Blue",
+                "type": "Coupe",
+                "_createdOn": 1742744516869,
+                "_id": "j1e2c3d4-9d5e-47e5-8b97-8bdf5ff2714e",
+                "imageUrl": "https://www.topgear.com/sites/default/files/cars-car/image/2018/08/am_dbs_superleggera_hyper_red_015_28083.jpg"
+            },
+            "k2f8d7a9-92d5-4b16-87e9-bf18f963d5c4": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "Maserati",
+                "model": "MC20",
+                "horsePower": "621",
+                "transmission": "automatic",
+                "price": "210000",
+                "description": "Mid-engined supercar with stunning design.",
+                "time0to100": "2.9",
+                "year": "2023",
+                "color": "Black",
+                "type": "Coupe",
+                "_createdOn": 1742744517870,
+                "_id": "k2f8d7a9-92d5-4b16-87e9-bf18f963d5c4",
+                "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/2023-maserati-mc20-cielo-spyder-28-1666275747.jpg?crop=0.583xw:0.493xh;0.124xw,0.434xh&resize=1200:*"
+            },
+            "l3g4e5f6-98d5-44d5-81ab-9b6c9c6f4b82": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "BMW",
+                "model": "M4 GTS",
+                "horsePower": "493",
+                "transmission": "automatic",
+                "price": "134000",
+                "description": "Performance-oriented version of the M4 with enhanced aerodynamics.",
+                "time0to100": "3.5",
+                "year": "2022",
+                "color": "White",
+                "type": "Coupe",
+                "_createdOn": 1742744518871,
+                "_id": "l3g4e5f6-98d5-44d5-81ab-9b6c9c6f4b82",
+                "imageUrl": "https://mediapool.bmwgroup.com/cache/P9/201604/P90215443/P90215443-the-new-bmw-m4-gts-04-2016-600px.jpg"
+            },
+            "m4f7d6a5-43e6-43e7-81f6-bf5e9d8f9c23": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "Jaguar",
+                "model": "F-Type R",
+                "horsePower": "575",
+                "transmission": "automatic",
+                "price": "102000",
+                "description": "Beautiful sports car with a supercharged V8 engine.",
+                "time0to100": "3.5",
+                "year": "2023",
+                "color": "Red",
+                "type": "Coupe",
+                "_createdOn": 1742744519872,
+                "_id": "m4f7d6a5-43e6-43e7-81f6-bf5e9d8f9c23",
+                "imageUrl": "https://www.motortrend.com/uploads/sites/5/2016/02/2016-Jaguar-F-Type-AWD-R-Coupe-front-three-quarter-in-motion.jpg"
+            },
+            "n5g6h7a8-64f9-44d9-8a7b-9f6d9a8e3c01": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "Ferrari",
+                "model": "488 Pista",
+                "horsePower": "710",
+                "transmission": "automatic",
+                "price": "350000",
+                "description": "Track-focused Ferrari with incredible performance.",
+                "time0to100": "2.7",
+                "year": "2022",
+                "color": "Yellow",
+                "type": "Coupe",
+                "_createdOn": 1742744520873,
+                "_id": "n5g6h7a8-64f9-44d9-8a7b-9f6d9a8e3c01",
+                "imageUrl": "https://car-images.bauersecure.com/wp-images/12535/ferrari_488_pista_21.jpg"
+            },
+            "o6h8i9j0-5d3b-4205-9253-9e0a5a7b9b13": {
+                "_ownerId": "298fab15-a135-4c20-9a2a-d782820a1865",
+                "brand": "Audi",
+                "model": "R8 V10 Performance",
+                "horsePower": "620",
+                "transmission": "automatic",
+                "price": "220000",
+                "description": "Audi’s flagship sports car with a 5.2L V10 engine.",
+                "time0to100": "3.1",
+                "year": "2022",
+                "color": "Black",
+                "type": "Coupe",
+                "_createdOn": 1742744521874,
+                "_id": "o6h8i9j0-5d3b-4205-9253-9e0a5a7b9b13",
+                "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/2023-audi-r8-gt-front-three-quarters-motion-3-1664827965.jpg?crop=0.684xw:0.577xh;0.0321xw,0.281xh&resize=2048:*"
             }
         }
     };
