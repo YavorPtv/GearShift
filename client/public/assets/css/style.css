@@ -49,6 +49,10 @@ body{
 	overflow-x:hidden;
 }
 
+body::-webkit-scrollbar {
+    display: none; 
+}
+
 /* a,a:hover,a:active,a:focus {
 	display:inline-block;
 	text-decoration:none;
