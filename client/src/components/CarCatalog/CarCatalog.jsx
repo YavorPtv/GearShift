@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Filter from "../Filter/Filter";
 import Sort from "../Sort/Sort";
 import { FcClearFilters } from 'react-icons/fc'
+import Pagination from "../Pagination/Pagination";
 
 export default function Catalog() {
     const { cars, isLoading } = useCars();
@@ -13,8 +14,12 @@ export default function Catalog() {
     const [showFilter, setShowFilter] = useState(false);
     const [showSort, setShowSort] = useState(false);
     const [sortCriteria, setSortCriteria] = useState(""); // Holds sorting criteria
+    const [hasFilteredOrSorted, setHasFilteredOrSorted] = useState(false);
     const { sortAndFilterCars, isLoading: isSortingAndFiltering } = useCarsSortAndFilter(); // Using the sort hook
-    // const { hasFilters, setHasFilters } = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const carsPerPage = 12;
+    const totalPages = Math.ceil(displayCars.length / carsPerPage);
+
     const [filters, setFilters] = useState({
         year: "",
         color: "",
@@ -22,7 +27,6 @@ export default function Catalog() {
         transmission: "",
         model: "",
         price: "",
-        firstFilter: true,
     });
     useEffect(() => {
         if (!isLoading) {
@@ -37,6 +41,7 @@ export default function Catalog() {
         setShowSort((state) => !state);
     };
     const handleRemoveFiltersClick = async () => {
+        setHasFilteredOrSorted(false);
         setFilters({
             year: "",
             color: "",
@@ -44,23 +49,29 @@ export default function Catalog() {
             transmission: "",
             model: "",
             price: "",
-            firstFilter: true,
         });
-        const sortedAndFilteredCars = await sortAndFilterCars({}, {}); // Fetch sorted cars
+        setSortCriteria("");
+        const sortedAndFilteredCars = cars; // Fetch sorted cars
         setDisplayCars(sortedAndFilteredCars);
     };
 
     const handleFilter = async (newFilters) => {
-        // setHasFilters(true);
+        setHasFilteredOrSorted(true);
         setFilters(newFilters); // Set the filters
         const sortedAndFilteredCars = await sortAndFilterCars(sortCriteria, newFilters); // Fetch sorted cars
         setDisplayCars(sortedAndFilteredCars);
     };
     const handleSort = async (criteria) => {
+        setHasFilteredOrSorted(true);
         setSortCriteria(criteria); // Set the selected sort criteria
         const sortedAndFilteredCars = await sortAndFilterCars(criteria, filters); // Fetch sorted cars
         setDisplayCars(sortedAndFilteredCars);
     };
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+    const paginatedCars = displayCars.slice((currentPage - 1) * carsPerPage, currentPage * carsPerPage);
 
     return (
         <>
@@ -78,8 +89,8 @@ export default function Catalog() {
                     <FaSort className="filter-icon"
                         onClick={handleSortClick}
                         style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem", marginLeft: "15px" }}
-                    />
-                    {!filters.firstFilter &&
+                    />  
+                    {hasFilteredOrSorted &&
                         <FcClearFilters className="filter-icon"
                             onClick={handleRemoveFiltersClick}
                             style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem", marginLeft: "15px" }}
@@ -87,15 +98,15 @@ export default function Catalog() {
                     }
 
 
-                    {showFilter && <Filter onFilter={handleFilter} prevFilters={filters} />}
-                    {showSort && <Sort onSort={handleSort} prevSortValue={sortCriteria} />}
+                    {showFilter && <Filter onFilter={handleFilter} filters={filters} setFilters={setFilters} />}
+                    {showSort && <Sort onSort={handleSort} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} />}
 
                     {isLoading || isSortingAndFiltering || isSortingAndFiltering ? (
                         <Spinner />
                     ) : (
                         <div className="car-catalog-container">
-                            {displayCars.length > 0
-                                ? displayCars.map(car => (
+                            {paginatedCars.length > 0
+                                ? paginatedCars.map(car => (
                                     <CarCatalogItem
                                         key={car._id}
                                         {...car}
@@ -105,6 +116,11 @@ export default function Catalog() {
                             }
                         </div>
                     )}
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                    />
                 </div>
             </section>
         </>

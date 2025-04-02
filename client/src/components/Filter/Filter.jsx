@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "./Filter.css";
 
 export default function Filter({
     onFilter,
-    prevFilters
+    filters,
+    setFilters
 }) {
-    const [filters, setFilters] = useState(prevFilters);
 
     const handleChange = (e) => {
         setFilters((prev) => ({

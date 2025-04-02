@@ -1,18 +1,17 @@
-import { useState } from 'react';
 import './Sort.css';
 
 export default function Sort({ 
     onSort,
-    prevSortValue
+    sortCriteria,
+    setSortCriteria
 }) {
-    const [sortValue, setSortValue] = useState(prevSortValue);
 
     const handleInputChange = (e) => {
-        setSortValue(e.target.value);
+        setSortCriteria(e.target.value);
     };
 
     const handleSortClick = () => {
-        onSort(sortValue); // Call the parent function with the sort value
+        onSort(sortCriteria); // Call the parent function with the sort value
     };
 
     return (
@@ -21,7 +20,7 @@ export default function Sort({
                 type="text"
                 className="sort-input"
                 placeholder="Enter sort criteria"
-                value={sortValue}
+                value={sortCriteria}
                 onChange={handleInputChange}
             >
                 <option value="">Select sort criteria</option>
