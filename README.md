@@ -85,6 +85,7 @@ The frontend is now running on `http://localhost:5173/`.
 - Home
 - Catalog
 - Car Details
+- About Us
 
 #### 🚪 Guest-Only Pages
 - Login
