@@ -10,7 +10,7 @@ GearShift is a hub for car enthusiasts to discover, discuss, and engage with oth
 ### Frontend  
 - **React** (Framework)  
 - **React Router** (Client-side navigation)  
-- **FireBase** (Deployment)
+- **Firebase** (Deployment)
 - **React Icons** (Icons)
 - **React Spinners** (Spinners)
 - **Toastify** (Notifications)
@@ -27,6 +27,7 @@ GearShift is a hub for car enthusiasts to discover, discuss, and engage with oth
 ### 1️⃣ Prerequisites  
 Before running the project, ensure you have the following installed:  
 - **[Node.js](https://nodejs.org/) (installed)** 
+- **[Git](https://git-scm.com/) (installed)** 
 
 ---
 
@@ -52,10 +53,10 @@ The backend is now running on `http://localhost:3030/`.
 
 ### 4️⃣ Frontend Setup
 
-Open a new terminal window and run the following commands to start the frontend:
+Open a new terminal window navigate to the project folder(GearShift) and run the following commands to start the frontend:
 
 ```bash
-cd client && npm run dev
+cd client && npm i && npm run dev
 ```
 
 The frontend is now running on `http://localhost:5173/`.
@@ -74,8 +75,6 @@ The frontend is now running on `http://localhost:5173/`.
 - Home
 - Catalog
 - Car Details
-- Privacy Policy
-- Terms of Service
 
 #### 🚪 Guest-Only Pages
 - Login
