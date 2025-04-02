@@ -3,7 +3,7 @@ import "./Filter.css";
 export default function Filter({
     onFilter,
     filters,
-    setFilters
+    setFilters,
 }) {
 
     const handleChange = (e) => {

@@ -1,4 +1,4 @@
-import { useEffect, useOptimistic, useState } from "react";
+import { useCallback, useEffect, useOptimistic, useState } from "react";
 import useAuth from "../hooks/useAuth"
 import request from "../utils/request";
 
@@ -24,28 +24,26 @@ export const useCars = () => {
 export const useCarsSortAndFilter = () => {
     const [isLoading, setIsLoading] = useState(false);
 
-    const sortAndFilterCars = async (sortCriteria = {}, filters = {}) => {
+    const sortAndFilterCars = useCallback(async (sortCriteria = {}, filters = {}) => {
         setIsLoading(true);
 
-        // URL-encode the sortCriteria and prepare the query string
         let sortBy;
         switch (sortCriteria) {
             case 'newest':
-                sortBy = '_createdOn desc'
+                sortBy = '_createdOn desc';
                 break;
             case 'abc-asc':
-                sortBy = 'brand'
+                sortBy = 'brand';
                 break;
             case 'zyx-desc':
-                sortBy = 'brand desc'
+                sortBy = 'brand desc';
                 break;
             case 'price-desc':
-                sortBy = 'price desc'
+                sortBy = 'price desc';
                 break;
             case 'price-asc':
-                sortBy = 'price'
+                sortBy = 'price';
                 break;
-
             default:
                 break;
         }
@@ -54,18 +52,18 @@ export const useCarsSortAndFilter = () => {
         if (sortBy) {
             params.append("sortBy", sortBy);
         }
+
         const conditions = Object.entries(filters)
             // eslint-disable-next-line no-unused-vars
             .filter(([_, value]) => value)
             .map(([key, value]) => {
                 if (key === 'price') {
-                    return `price <= ${value}`
+                    return `price <= ${value}`;
                 } else {
                     return `${key} LIKE "${value}"`;
                 }
             })
             .join(" AND ");
-
 
         if (conditions) {
             params.append("where", conditions);
@@ -74,13 +72,13 @@ export const useCarsSortAndFilter = () => {
         try {
             const result = await request.get(`${baseUrl}?${params.toString()}`);
             setIsLoading(false);
-            return result; // Return the sorted data
+            return result;
         } catch (error) {
             console.error("Error fetching sorted cars:", error);
             setIsLoading(false);
             return [];
         }
-    };
+    }, []); // Dependencies: empty because it doesn't rely on external state
 
     return {
         sortAndFilterCars,
