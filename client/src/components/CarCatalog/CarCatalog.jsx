@@ -92,11 +92,13 @@ export default function Catalog() {
                 <FaFilter className="filter-icon"
                     onClick={() => setShowFilter((prev) => !prev)}
                     style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem" }}
+                    data-testid="filter"
                 />
 
                 <FaSort className="filter-icon"
                     onClick={() => setShowSort((prev) => !prev)}
                     style={{ color: "#4e4ffa", cursor: "pointer", fontSize: "2rem", marginLeft: "15px" }}
+                    data-testid="sort"
                 />
 
                 {Object.values(filters).some((val) => val) || sortCriteria ? (

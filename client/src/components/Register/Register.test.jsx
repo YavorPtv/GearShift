@@ -59,15 +59,17 @@ describe("Register Component", () => {
         const emailInput = screen.getByLabelText(/email/i);
         const passwordInput = screen.getByLabelText(/^password:$/im);
         const confirmPasswordInput = screen.getByLabelText(/Repeat Password:/i);
+        const profilePictureInput = screen.getByLabelText(/Profile Picture \(Optional\):/i);
         const submitButton = screen.getByRole("button", { name: /register/i });
 
         fireEvent.change(usernameInput, { target: { value: "testuser" } });
         fireEvent.change(emailInput, { target: { value: "test@example.com" } });
         fireEvent.change(passwordInput, { target: { value: "password123" } });
         fireEvent.change(confirmPasswordInput, { target: { value: "password123" } });
+        fireEvent.change(profilePictureInput, { target: { value: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHVX3bDqNHEEZaVaG_vBDLHnHJvlYn9Kz5Q&s" } });
         fireEvent.click(submitButton);
 
-        await waitFor(() => expect(mockRegister).toHaveBeenCalledWith("testuser", "test@example.com", "password123"));
+        await waitFor(() => expect(mockRegister).toHaveBeenCalledWith("testuser", "test@example.com", "password123", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHVX3bDqNHEEZaVaG_vBDLHnHJvlYn9Kz5Q&s"));
         await waitFor(() => expect(mockUserLoginHandler).toHaveBeenCalledWith({ token: "mockToken" }));
         await waitFor(() => expect(toast.success).toHaveBeenCalledWith("Successfully registered!"));
     });
@@ -102,15 +104,17 @@ describe("Register Component", () => {
         const emailInput = screen.getByLabelText(/email/i);
         const passwordInput = screen.getByLabelText(/^password:$/im);
         const confirmPasswordInput = screen.getByLabelText(/Repeat Password:/i);
+        const profilePictureInput = screen.getByLabelText(/Profile Picture \(Optional\):/i);
         const submitButton = screen.getByRole("button", { name: /register/i });
 
         fireEvent.change(usernameInput, { target: { value: "testuser" } });
         fireEvent.change(emailInput, { target: { value: "test@example.com" } });
         fireEvent.change(passwordInput, { target: { value: "password123" } });
         fireEvent.change(confirmPasswordInput, { target: { value: "password123" } });
+        fireEvent.change(profilePictureInput, { target: { value: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHVX3bDqNHEEZaVaG_vBDLHnHJvlYn9Kz5Q&s" } });
         fireEvent.click(submitButton);
 
-        await waitFor(() => expect(mockRegister).toHaveBeenCalledWith("testuser", "test@example.com", "password123"));
+        await waitFor(() => expect(mockRegister).toHaveBeenCalledWith("testuser", "test@example.com", "password123", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHVX3bDqNHEEZaVaG_vBDLHnHJvlYn9Kz5Q&s"));
         await waitFor(() => expect(mockUserLoginHandler).not.toHaveBeenCalled());
         await waitFor(() => expect(toast.error).toHaveBeenCalledWith("Registration failed"));
     });
