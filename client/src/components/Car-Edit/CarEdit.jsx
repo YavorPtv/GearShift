@@ -105,7 +105,7 @@ export default function CarEdit() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="description">Quick Description (approx. 15 words):</label>
+                    <label htmlFor="description">Quick Description:</label>
                     <textarea
                         id="description"
                         name="description"
@@ -123,6 +123,7 @@ export default function CarEdit() {
                         type="number"
                         id="time0to100"
                         name="time0to100"
+                        step="any"
                         value={formData.time0to100 ? formData.time0to100 : ""}
                         onChange={handleChange}
                         required

@@ -28,6 +28,7 @@ export default function Footer() {
                     <h3>Quick Links</h3>
                     <div className="footer-links">
                         <Link to="/cars">Browse Cars</Link>
+                        <Link to="/about">About Us</Link>
                         {isAuthenticated 
                             ? <Link to="/cars/create">Create a Listing</Link>
                             : <>
