@@ -15,7 +15,7 @@ export default function CarDetails() {
     const { carId } = useParams();
     const { car, isLoading: isLoadingCar } = useCar(carId);
     const { deleteCar, isLoading: isLoadingDeleteCar } = useCarDelete();
-    const { userId, username } = useAuth();
+    const { userId, username, isAuthenticated } = useAuth();
     const { comments, addComment, editComment, deleteComment, isLoading: isLoadingComments } = useComments(carId);
     const [optimisticComments, setOptimisticComments] = useOptimistic(comments, (state, newComment) => [...state, newComment]);
     const { create } = useCreateComment();
@@ -70,22 +70,25 @@ export default function CarDetails() {
                     />
                 </div>
                 <div className="info-container">
-                    <div className="like-dislike-container">
-                        <button
-                            className={`like-button ${userReaction === "like" ? "active" : ""}`}
-                            style={{ color: "#4e4ffa" }}
-                            onClick={() => toggleReaction("like")}
-                        >
-                            <AiFillLike /> {likes}
-                        </button>
-                        <button
-                            className={`dislike-button ${userReaction === "dislike" ? "active" : ""}`}
-                            style={{ color: "#4e4ffa" }}
-                            onClick={() => toggleReaction("dislike")}
-                        >
-                            <AiFillDislike /> {dislikes}
-                        </button>
-                    </div>
+                    {isAuthenticated && (
+                        <div className="like-dislike-container">
+                            <button
+                                className={`like-button ${userReaction === "like" ? "active" : ""}`}
+                                style={{ color: "#4e4ffa" }}
+                                onClick={() => toggleReaction("like")}
+                            >
+                                <AiFillLike /> {likes}
+                            </button>
+                            <button
+                                className={`dislike-button ${userReaction === "dislike" ? "active" : ""}`}
+                                style={{ color: "#4e4ffa" }}
+                                onClick={() => toggleReaction("dislike")}
+                            >
+                                <AiFillDislike /> {dislikes}
+                            </button>
+                        </div>
+                    )}
+
                     <h2 className="section-title">CAR DETAILS</h2>
                     <div className="car-specs">
                         <div className="spec"><strong>Make:</strong> {car.brand}</div>
