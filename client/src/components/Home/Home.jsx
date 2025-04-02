@@ -11,8 +11,8 @@ export default function Home() {
                     <p>Discover, showcase, and discuss the world's best rides.</p>
                     <Link to="/cars" className="welcome-btn">Explore cars</Link>
                     {isAuthenticated
-                        ? <Link to="/cars/create" className="welcome-btn">Create a Listing</Link>
-                        : <Link to="/register" className="welcome-btn">Join the Community</Link>
+                        ? <Link to="/cars/create" className="welcome-btn">Create a Post</Link>
+                        : <Link to="/about" className="welcome-btn">About Us</Link>
                     }
                 </div>
             </div>

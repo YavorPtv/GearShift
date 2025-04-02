@@ -46,17 +46,27 @@ cd GearShift
 Open a terminal and run the following commands to start the backend:
 
 ```bash
-cd server && node server
+cd server
 ```
+```bash
+node server
+```
+
 
 The backend is now running on `http://localhost:3030/`.
 
 ### 4️⃣ Frontend Setup
 
-Open a new terminal window navigate to the project folder(GearShift) and run the following commands to start the frontend:
+Open a new terminal window navigate to the project folder (GearShift) and run the following commands to start the frontend:
 
 ```bash
-cd client && npm i && npm run dev
+cd client 
+```
+```bash
+npm i
+```
+```bash
+npm run dev
 ```
 
 The frontend is now running on `http://localhost:5173/`.

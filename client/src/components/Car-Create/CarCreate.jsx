@@ -103,6 +103,7 @@ export default function CarCreate() {
                         type="number"
                         id="time0to100"
                         name="time0to100"
+                        step="any"
                         // value={formData.time0to100}
                         // onChange={handleInputChange}
                         required

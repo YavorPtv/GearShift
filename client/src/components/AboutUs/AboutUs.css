@@ -1,0 +1,52 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    color: #818998;
+    padding: 50px;
+    margin-top: 80px;
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 3.3rem;
+    font-weight: bold;
+    color: #4e4ffa;
+    margin-bottom: 20px;
+}
+
+.about-subtitle {
+    font-size: 2.3rem;
+    color: #4e4ffa;
+    margin-top: 30px;
+}
+
+.about-text {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-list {
+    text-align: left;
+    font-size: 1.7rem;
+    line-height: 1.8;
+    list-style: none;
+    padding: 0;
+}
+
+.about-list li {
+    margin: 10px 0;
+}
+
+.about-list li::before {
+    content: "⚡ ";
+    color: #4e4ffa;
+    font-weight: bold;
+}

@@ -17,6 +17,7 @@ import GuestGuard from './components/guards/GuestGuard';
 import { ToastContainer } from 'react-toastify'
 import Profile from './components/Profile/Profile';
 import NotFound from './components/NotFound/NotFound';
+import AboutUs from './components/AboutUs/AboutUs';
 
 export default function App() {
 
@@ -28,6 +29,7 @@ export default function App() {
                 <Route index element={<Home />} />
                 <Route path='/cars' element={<CarCatalog />} />
                 <Route path='/cars/:carId/details' element={<CarDetails />} />
+                <Route path='/about' element={<AboutUs />} />
 
                 <Route element={<AuthGuard />}>
                     <Route path='/cars/create' element={<CarCreate />} />
