@@ -305,3 +305,34 @@
     opacity: 0.5;
     font-style: italic;
 }
+
+.like-dislike-container {
+    display: flex;
+    gap: 15px;
+    margin: auto 60px auto 30px;
+    justify-content: flex-end;
+}
+
+.like-button, .dislike-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.like-button:hover, .dislike-button:hover {
+    transform: scale(1.1);
+}
+
+.like-button.active, .dislike-button.active {
+    color: #4e4ffa; /* Accent color */
+}
+
+.like-button svg, .dislike-button svg {
+    font-size: 3rem;
+}

@@ -87,3 +87,19 @@
         width: 100%;  /* 1 item per row on very small screens */
     }
 }
+
+.reaction-counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    gap: 8px;
+    font-size: 1.5rem; /* Increase size */
+    font-weight: bold;
+    color: #4e4ffa; /* Accent color */
+}
+
+.reaction-counter svg {
+    font-size: 2rem; /* Bigger icons */
+}

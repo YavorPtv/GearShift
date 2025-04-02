@@ -1,3 +1,4 @@
+import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { useOptimistic } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useCreateComment } from "../../api/commentsApi";
@@ -7,6 +8,7 @@ import CommentsView from "../Comments-View/CommentsView";
 import CommentsCreate from "../Comments-Create/CommentsCreate";
 import { useComments } from "../../api/commentsApi";
 import Spinner from "../Spinner/Spinner";
+import { useLikes } from "../../api/reactionsApi";
 
 export default function CarDetails() {
     const navigate = useNavigate();
@@ -17,6 +19,7 @@ export default function CarDetails() {
     const { comments, addComment, editComment, deleteComment, isLoading: isLoadingComments } = useComments(carId);
     const [optimisticComments, setOptimisticComments] = useOptimistic(comments, (state, newComment) => [...state, newComment]);
     const { create } = useCreateComment();
+    const { likes, dislikes, userReaction, toggleReaction } = useLikes(carId);
 
     const carDeleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this car?`);
@@ -58,6 +61,7 @@ export default function CarDetails() {
     return (
         <div className="car-details">
             <div className="top-section">
+
                 <div className="image-container-details">
                     <img
                         src={car.imageUrl}
@@ -66,6 +70,22 @@ export default function CarDetails() {
                     />
                 </div>
                 <div className="info-container">
+                    <div className="like-dislike-container">
+                        <button
+                            className={`like-button ${userReaction === "like" ? "active" : ""}`}
+                            style={{ color: "#4e4ffa" }}
+                            onClick={() => toggleReaction("like")}
+                        >
+                            <AiFillLike /> {likes}
+                        </button>
+                        <button
+                            className={`dislike-button ${userReaction === "dislike" ? "active" : ""}`}
+                            style={{ color: "#4e4ffa" }}
+                            onClick={() => toggleReaction("dislike")}
+                        >
+                            <AiFillDislike /> {dislikes}
+                        </button>
+                    </div>
                     <h2 className="section-title">CAR DETAILS</h2>
                     <div className="car-specs">
                         <div className="spec"><strong>Make:</strong> {car.brand}</div>
