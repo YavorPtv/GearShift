@@ -16,6 +16,7 @@ import AuthGuard from './components/guards/AuthGuard';
 import GuestGuard from './components/guards/GuestGuard';
 import { ToastContainer } from 'react-toastify'
 import Profile from './components/Profile/Profile';
+import NotFound from './components/NotFound/NotFound';
 
 export default function App() {
 
@@ -39,6 +40,7 @@ export default function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/login' element={<Login />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <ToastContainer />
             <Footer />
